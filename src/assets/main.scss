@@ -1,0 +1,66 @@
+//imports
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
+
+//colors
+$primary: #3e1e68;
+$secondary: #681e61;
+$error: #ef5777;
+$success: #1abc9c;
+$text: white;
+
+//resets
+* {
+    font-family: "Source Sans Pro", sans-serif;
+    box-sizing: border-box;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background: linear-gradient(to bottom right, $primary 0%, $secondary 100%);
+    color: $text;
+    height: 100vh;
+}
+
+// fonts
+h1,
+h2,
+h3,
+p {
+	margin: 0 0 1rem;
+}
+
+h1 {
+	font-size: 4.2rem;
+}
+
+h2 {
+	font-size: 2.6rem;
+}
+
+h3 {
+	font-size: 1.6rem;
+}
+
+p {
+	line-height: 1.5;
+}
+
+a {
+	text-decoration: none;
+	color: $text;
+	cursor: pointer;
+
+	&:hover {
+		background-color: fade-out($color: white, $amount: 0.6);
+	}
+}
+
+//globals
+
+
