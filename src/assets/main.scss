@@ -2,65 +2,113 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
 
 //colors
+//$primary: #3EC761;
 $primary: #3e1e68;
 $secondary: #681e61;
 $error: #ef5777;
 $success: #1abc9c;
-$text: white;
 
 //resets
 * {
-    font-family: "Source Sans Pro", sans-serif;
     box-sizing: border-box;
-    font-weight: 300;
     margin: 0;
     padding: 0;
 }
 
 html {
-    font-size: 62.5%;
+	line-height: 2.1rem;
 }
 
 body {
-    background: linear-gradient(to bottom right, $primary 0%, $secondary 100%);
-    color: $text;
-    height: 100vh;
-}
-
-// fonts
-h1,
-h2,
-h3,
-p {
-	margin: 0 0 1rem;
+	font-family: "Source Sans Pro", sans-serif;
+	font-size: 1rem;
+	line-height: 1.3125rem;
+	margin: auto;
 }
 
 h1 {
-	font-size: 4.2rem;
+	font-size: 2.8125rem;
+	line-height: 3.9375rem;
+	margin-top: 1.3125rem;
+	margin-bottom: 2.625rem;
 }
 
 h2 {
-	font-size: 2.6rem;
+	font-size: 2rem;
+	line-height: 2.625rem;
+	margin-top: 1.3125rem;
+	margin-bottom: 1.3125rem;
 }
 
 h3 {
-	font-size: 1.6rem;
+	font-size: 1.4375rem;
+	line-height: 2.625rem;
+	margin-top: 1.3125rem;
+	margin-bottom: 0rem;
 }
 
-p {
-	line-height: 1.5;
+p, ul, ol, pre, table, blockquote {
+	margin-top: 0rem;
+	margin-bottom: 1.3125rem;
 }
 
-a {
-	text-decoration: none;
-	color: $text;
-	cursor: pointer;
-
-	&:hover {
-		background-color: fade-out($color: white, $amount: 0.6);
-	}
+ul ul, ol ol, ul ol, ol ul {
+	margin-top: 0rem;
+	margin-bottom: 0rem;
 }
 
 //globals
+section {
+	display: flex;
+	max-width: 1200px;
+	margin: 0 auto;
+}
 
+.col1,
+.col2 {
+	flex-grow: 1;
+	flex-basis: 0;
+	padding: 1rem;
+}
 
+.button {
+	background: $primary;
+	color: white;
+	outline: none;
+	appearance: none;
+	cursor: pointer;
+	border: 0;
+	border-radius: 3px;
+	min-width: 150px;
+	font-size: 1rem;
+	padding: 0.8rem 1rem;
+
+	&:hover {
+		background: lighten($primary, 10%);
+	}
+
+	&:disabled {
+		opacity: 0.5;
+
+		&:hover {
+			background: $primary;
+		}
+	}
+}
+
+form {
+	input {
+		display: block;
+		width: 100%;
+		margin-bottom: 1rem;
+		font-size: 1rem;
+		padding: 10px;
+		outline: 0;
+		border: 1px solid #e6ecf0;
+		border-radius: 3px;
+
+		&:focus {
+			box-shadow: 0 0 5px 0 rgba(black, 0.2);
+		}
+	}
+}
