@@ -11,7 +11,7 @@
         </p>
       </div>
       <div class="col2">
-        <form @submit.prevent>
+        <form v-if="showLoginForm" @submit.prevent>
           <h1>Welcome Back</h1>
           <input
             v-model.trim="loginForm.email"
@@ -28,7 +28,38 @@
           <button @click="login()" type="submit" class="button">Log In</button>
           <div class="extras">
             <a>Forgot Password</a>
-            <a>Create an Account</a>
+            <a @click="toggleForm()">Create an Account</a>
+          </div>
+        </form>
+        <form v-else @submit.prevent>
+          <h1>Get Started</h1>
+          <input
+            v-model.trim="signupForm.name"
+            type="text"
+            placeholder="Name"
+            class="name"
+          />
+          <input
+            v-model.trim="signupForm.title"
+            type="text"
+            placeholder="Title"
+            class="title"
+          />
+          <input
+            v-model.trim="signupForm.email"
+            type="text"
+            placeholder="Email"
+            class="email"
+          />
+          <input
+            v-model.trim="signupForm.password"
+            type="password"
+            placeholder="Password"
+            class="password"
+          />
+          <button @click="signup()" class="button">Sign Up</button>
+          <div class="extras">
+            <a @click="toggleForm()">Back to Log In</a>
           </div>
         </form>
       </div>
@@ -37,12 +68,17 @@
 </template>
 
 <script>
-//import { reactive } from "@vue/composition-api";
+import { ref } from "@vue/composition-api";
 import { useStore } from "vuex";
 
 export default {
   setup() {
-    //const data = reactive({});
+    const showLoginForm = ref(true);
+
+    const toggleForm = () => {
+      showLoginForm.value = !showLoginForm.value;
+    };
+
     const login = () => {
       useStore().dispatch("login", {
         email: this.loginForm.email,
@@ -50,9 +86,27 @@ export default {
       });
     };
 
+    const signup = () => {
+      useStore().dispatch("signup", {
+        email: this.signupForm.email,
+        password: this.signupForm.password,
+        name: this.signupForm.name,
+        title: this.signupForm.title,
+      });
+    };
+
     return {
+      toggleForm,
+      showLoginForm,
       login,
+      signup,
       loginForm: {
+        email: "",
+        password: "",
+      },
+      signupForm: {
+        name: "",
+        title: "",
         email: "",
         password: "",
       },

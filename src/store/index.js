@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import * as fb from "../firebase";
 import router from "../router/index";
+import * as fb from "../firebase";
 
 Vue.use(Vuex);
 
@@ -15,6 +15,23 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    async signup({ dispatch }, form) {
+      // sign user up
+      const { user } = await fb.auth.createUserWithEmailAndPassword(
+        form.email,
+        form.password
+      );
+
+      // create user profile object in userCollections
+      await fb.usersCollection.doc(user.uid).set({
+        name: form.name,
+        title: form.title,
+      });
+
+      // fetch user profile and set in state
+      dispatch("fetchUserProfile", user);
+    },
+
     async login({ dispatch }, form) {
       // sign user in
       const { user } = await fb.auth.signInWithEmailAndPassword(
