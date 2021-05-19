@@ -25,7 +25,6 @@ export default new Vuex.Store({
       // create user profile object in userCollections
       await fb.usersCollection.doc(user.uid).set({
         name: form.name,
-        title: form.title,
       });
 
       // fetch user profile and set in state
