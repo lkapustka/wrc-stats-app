@@ -27,7 +27,7 @@
           />
           <button @click="login" type="submit" class="button">Log In</button>
           <div class="extras">
-            <a>Forgot Password</a>
+            <a @click="togglePaswordReset">Forgot Password</a>
             <a @click="toggleForm">Create an Account</a>
           </div>
         </form>
@@ -68,9 +68,14 @@ export default {
   setup() {
     const store = inject("vuex-store");
     const showLoginForm = ref(true);
+    const showPasswordReset = ref(false);
 
     const toggleForm = () => {
       showLoginForm.value = !showLoginForm.value;
+    };
+
+    const togglePaswordReset = () => {
+      showPasswordReset.value = !showPasswordReset.value;
     };
 
     const loginForm = reactive({
@@ -101,6 +106,8 @@ export default {
 
     return {
       toggleForm,
+      togglePaswordReset,
+      showPasswordReset,
       showLoginForm,
       login,
       signup,
