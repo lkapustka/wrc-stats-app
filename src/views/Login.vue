@@ -25,10 +25,10 @@
             placeholder="Password"
             class="password"
           />
-          <button @click="login()" type="submit" class="button">Log In</button>
+          <button @click="login" type="submit" class="button">Log In</button>
           <div class="extras">
             <a>Forgot Password</a>
-            <a @click="toggleForm()">Create an Account</a>
+            <a @click="toggleForm">Create an Account</a>
           </div>
         </form>
         <form v-else @submit.prevent>
@@ -57,9 +57,9 @@
             placeholder="Password"
             class="password"
           />
-          <button @click="signup()" class="button">Sign Up</button>
+          <button @click="signup" class="button">Sign Up</button>
           <div class="extras">
-            <a @click="toggleForm()">Back to Log In</a>
+            <a @click="toggleForm">Back to Log In</a>
           </div>
         </form>
       </div>
@@ -68,30 +68,42 @@
 </template>
 
 <script>
-import { ref } from "@vue/composition-api";
-import { useStore } from "vuex";
+import { reactive, ref, inject } from "@vue/composition-api";
 
 export default {
   setup() {
+    const store = inject("vuex-store");
     const showLoginForm = ref(true);
 
     const toggleForm = () => {
       showLoginForm.value = !showLoginForm.value;
     };
 
+    const loginForm = reactive({
+      email: "",
+      password: "",
+    });
+
     const login = () => {
-      useStore().dispatch("login", {
-        email: this.loginForm.email,
-        password: this.loginForm.password,
+      store.dispatch("login", {
+        email: loginForm.email,
+        password: loginForm.password,
       });
     };
 
+    const signupForm = reactive({
+      name: "",
+      title: "",
+      email: "",
+      password: "",
+    });
+
     const signup = () => {
-      useStore().dispatch("signup", {
-        email: this.signupForm.email,
-        password: this.signupForm.password,
-        name: this.signupForm.name,
-        title: this.signupForm.title,
+      store.dispatch("signup", {
+        email: signupForm.email,
+        password: signupForm.password,
+        name: signupForm.name,
+        title: signupForm.title,
       });
     };
 
@@ -100,16 +112,8 @@ export default {
       showLoginForm,
       login,
       signup,
-      loginForm: {
-        email: "",
-        password: "",
-      },
-      signupForm: {
-        name: "",
-        title: "",
-        email: "",
-        password: "",
-      },
+      signupForm,
+      loginForm,
     };
   },
 };
