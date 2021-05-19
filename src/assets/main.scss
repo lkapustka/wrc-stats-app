@@ -57,6 +57,15 @@ ul ul, ol ol, ul ol, ol ul {
 	margin-bottom: 0rem;
 }
 
+a {
+	cursor: pointer;
+	text-decoration: none;
+
+	&:hover {
+		color: lighten($primary, 10%);
+	}
+}
+
 //globals
 section {
 	display: flex;

@@ -10,7 +10,7 @@
           application will help you with that.
         </p>
       </div>
-      <div class="col2">
+      <div :class="{ 'signup-form': !showLoginForm }" class="col2">
         <form v-if="showLoginForm" @submit.prevent>
           <h1>Welcome Back</h1>
           <input
@@ -38,12 +38,6 @@
             type="text"
             placeholder="Name"
             class="name"
-          />
-          <input
-            v-model.trim="signupForm.title"
-            type="text"
-            placeholder="Title"
-            class="title"
           />
           <input
             v-model.trim="signupForm.email"
@@ -93,7 +87,6 @@ export default {
 
     const signupForm = reactive({
       name: "",
-      title: "",
       email: "",
       password: "",
     });
@@ -103,7 +96,6 @@ export default {
         email: signupForm.email,
         password: signupForm.password,
         name: signupForm.name,
-        title: signupForm.title,
       });
     };
 
@@ -164,5 +156,9 @@ export default {
       margin-bottom: 0.5rem;
     }
   }
+}
+
+.signup-form {
+  padding-top: 20vh;
 }
 </style>
