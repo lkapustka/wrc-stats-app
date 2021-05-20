@@ -1,5 +1,9 @@
 <template>
   <div class="login">
+    <PasswordReset
+      v-if="showPasswordReset"
+      @close="togglePaswordReset"
+    ></PasswordReset>
     <section>
       <div class="col1">
         <h1>WRC Stats</h1>
@@ -63,8 +67,11 @@
 
 <script>
 import { reactive, ref, inject } from "@vue/composition-api";
+import PasswordReset from "@/components/PasswordReset.vue";
 
 export default {
+  components: { PasswordReset },
+
   setup() {
     const store = inject("vuex-store");
     const showLoginForm = ref(true);
