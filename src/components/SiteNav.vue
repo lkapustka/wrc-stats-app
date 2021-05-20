@@ -12,9 +12,26 @@
           <li>
             <router-link to="/settings">Settings</router-link>
           </li>
-          <li><a>Logout</a></li>
+          <li><a @click="logout">Logout</a></li>
         </ul>
       </div>
     </section>
   </header>
 </template>
+
+<script>
+import { defineComponent, inject } from "@vue/composition-api";
+
+export default defineComponent({
+  setup() {
+    const store = inject("vuex-store");
+    const logout = () => {
+      store.dispatch("logout");
+    };
+
+    return {
+      logout,
+    };
+  },
+});
+</script>
