@@ -35,3 +35,11 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+header {
+  background: black;
+  width: 500px;
+  height: 500px;
+}
+</style>
