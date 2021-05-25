@@ -37,9 +37,31 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/main.scss";
+
 header {
-  background: black;
-  width: 500px;
-  height: 500px;
+  position: relative;
+  background: white;
+  box-shadow: 0 0 5px 0 rgba($shadow, 0.5);
+  z-index: 10;
+
+  h3 {
+    display: inline-block;
+  }
+
+  ul {
+    float: right;
+    text-align: right;
+
+    li {
+      margin-top: 4px;
+      margin-left: 6px;
+
+      a {
+        display: block;
+        padding: 5px;
+      }
+    }
+  }
 }
 </style>

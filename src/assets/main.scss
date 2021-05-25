@@ -7,6 +7,7 @@ $primary: #3e1e68;
 $secondary: #681e61;
 $error: #ef5777;
 $success: #1abc9c;
+$shadow: #34495E;
 
 //resets
 * {
@@ -117,10 +118,19 @@ form {
 		border-radius: 3px;
 
 		&:focus {
-			box-shadow: 0 0 5px 0 rgba(black, 0.2);
+			box-shadow: 0 0 5px 0 rgba($shadow, 0.2);
 		}
 	}
 }
+
+.inline {
+	margin: 0;
+	list-style: none;
+
+	li {
+	  display: inline-block;
+	}
+  }
 
 .error-msg {
 	margin-top: 1rem;
