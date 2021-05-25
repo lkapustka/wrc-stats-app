@@ -43,7 +43,7 @@ export default new Vuex.Store({
     },
     async fetchUserProfile({ commit }, user) {
       // fetch user profile
-      const userProfile = await fb.usersCollection.doc(user.id).get();
+      const userProfile = await fb.usersCollection.doc(user.uid).get();
 
       // set user profile in state
       commit("setUserProfile", userProfile.data());
