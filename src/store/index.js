@@ -8,6 +8,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     userProfile: {},
+    rallys: require("../data/rallys.json"),
   },
   mutations: {
     setUserProfile(state, value) {
