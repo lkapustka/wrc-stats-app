@@ -2,19 +2,34 @@ import Vue from "vue";
 import Vuex from "vuex";
 import router from "../router/index";
 import * as fb from "../firebase";
+import _ from "lodash";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
     userProfile: {},
-    rallys: require("../data/rallys.json"),
+    rallies: require("../data/rallies.json"),
+    timeOfDay: ["Dawn", "Midday", "Evening", "Night"],
   },
+
+  getters: {
+    getRally: (state) => (id) => {
+      const index = _.findIndex(state.rallies[0].rallies, ["id", id]);
+      return state.rallies[0].rallies[index];
+    },
+
+    getTimeOfDay: (state) => (index) => {
+      return state.timeOfDay[index - 1];
+    },
+  },
+
   mutations: {
     setUserProfile(state, value) {
       state.userProfile = value;
     },
   },
+
   actions: {
     async signup({ dispatch }, form) {
       // sign user up
@@ -42,6 +57,7 @@ export default new Vuex.Store({
       // fetch user profile and set in state
       dispatch("fetchUserProfile", user);
     },
+
     async fetchUserProfile({ commit }, user) {
       // fetch user profile
       const userProfile = await fb.usersCollection.doc(user.uid).get();
@@ -63,5 +79,6 @@ export default new Vuex.Store({
       router.push("/login");
     },
   },
+
   modules: {},
 });
