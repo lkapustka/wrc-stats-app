@@ -2,13 +2,12 @@
   <div>
     <h1>WRC Rallies Draw</h1>
     <button class="button" @click="showRandomRally">Draw Rally</button>
-    <output></output>
+    <div>{{ randomRally }}</div>
   </div>
 </template>
 
 <script>
-import { defineComponent, inject } from "@vue/composition-api";
-import _ from "lodash";
+import { defineComponent, inject, ref } from "@vue/composition-api";
 
 export default defineComponent({
   setup() {
@@ -29,14 +28,16 @@ export default defineComponent({
     const showRandomRally = () => {
       const rally = store.getters.getRally(drawRandomRally());
       const time = store.getters.getTimeOfDay(drawRandomTime());
-
-      const output = document.querySelector("output");
-      output.value = rally.country + " - " + rally.name + " " + time;
+      randomRally.value = `${rally.country} - ${rally.name}  ${time}`;
     };
+
+    const randomRally = ref("");
 
     return {
       showRandomRally,
+      randomRally,
     };
   },
 });
 </script>
+<style lang="scss" scoped></style>
