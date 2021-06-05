@@ -140,3 +140,7 @@ form {
 		color: $error;
 	}
 }
+
+[v-cloak] {
+	display: none;
+}

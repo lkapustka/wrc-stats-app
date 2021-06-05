@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" v-cloak>
     <SiteNav v-if="showNav"></SiteNav>
     <router-view />
   </div>
