@@ -144,3 +144,12 @@ form {
 [v-cloak] {
 	display: none;
 }
+
+table,
+td,
+th {
+  min-width: 200px;
+  border: 2px solid $primary;
+  border-collapse: collapse;
+  padding: 10px;
+}
