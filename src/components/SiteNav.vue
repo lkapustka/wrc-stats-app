@@ -40,27 +40,21 @@ export default defineComponent({
 @import "../assets/main.scss";
 
 header {
-  position: relative;
   background: white;
   box-shadow: 0 0 5px 0 rgba($shadow, 0.5);
   z-index: 10;
 
-  h3 {
-    display: inline-block;
-  }
+  .col1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-  ul {
-    float: right;
-    text-align: right;
+    h3 {
+      margin: 0;
+    }
 
     li {
-      margin-top: 4px;
-      margin-left: 6px;
-
-      a {
-        display: block;
-        padding: 5px;
-      }
+      margin-left: 15px;
     }
   }
 }
