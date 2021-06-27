@@ -55,6 +55,7 @@ header {
 
     li {
       margin-left: 15px;
+      font-weight: bold;
     }
   }
 }
