@@ -61,6 +61,7 @@ ul ul, ol ol, ul ol, ol ul {
 a {
 	cursor: pointer;
 	text-decoration: none;
+	color: $primary;
 
 	&:hover {
 		color: lighten($primary, 15%);
