@@ -40,20 +40,22 @@
           <input
             v-model.trim="signupForm.name"
             type="text"
-            placeholder="Name"
-            class="name"
+            placeholder="Your name"
+          />
+          <input
+            v-model.trim="signupForm.friend"
+            type="text"
+            placeholder="Your friend name"
           />
           <input
             v-model.trim="signupForm.email"
             type="text"
             placeholder="Email"
-            class="email"
           />
           <input
             v-model.trim="signupForm.password"
             type="password"
             placeholder="Password"
-            class="password"
           />
           <button @click="signup" class="button">Sign Up</button>
           <div class="extras">
@@ -99,6 +101,7 @@ export default {
 
     const signupForm = reactive({
       name: "",
+      friend: "",
       email: "",
       password: "",
     });
@@ -108,6 +111,7 @@ export default {
         email: signupForm.email,
         password: signupForm.password,
         name: signupForm.name,
+        friend: signupForm.friend,
       });
     };
 
@@ -150,6 +154,7 @@ export default {
   p {
     max-width: 510px;
     line-height: 1.8;
+    font-weight: bold;
   }
 }
 
@@ -159,6 +164,7 @@ export default {
   form {
     margin: 0 auto;
     max-width: 450px;
+    font-weight: bold;
   }
 
   .extras {
@@ -173,6 +179,6 @@ export default {
 }
 
 .signup-form {
-  padding-top: 20vh;
+  padding-top: 30vh;
 }
 </style>
