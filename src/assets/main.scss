@@ -2,157 +2,140 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
 
 //colors
-$primary: blueviolet;  //#3e1e68;
-$secondary: #ece7fd;  //#f4f1fe;
+$primary: blueviolet; //#3e1e68;
+$secondary: #ece7fd; //#f4f1fe;
 $bg: #fbfbfd;
 $error: #ef5777;
 $success: #1abc9c;
-$shadow: #34495E;
+$shadow: #34495e;
 
 //resets
-* {
-	font-family: "Source Sans Pro", sans-serif;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-	line-height: 2.1rem;
+  font-size: 62.5%;
 }
 
 body {
-	font-size: 1rem;
-	line-height: 1.3125rem;
-	margin: auto;
+  font-family: "Source Sans Pro", sans-serif;
+  color: white;
 }
 
-h1 {
-	font-size: 2.8125rem;
-	line-height: 3.9375rem;
-	margin-top: 1.3125rem;
-	margin-bottom: 2.625rem;
-}
+.btn {
+  padding: 1em 1.5em;
+  font-size: 1.6rem;
+  font-family: inherit;
+  color: white;
+  background: $primary;
+  border: none;
+  min-width: 150px;
 
-h2 {
-	font-size: 2rem;
-	line-height: 2.625rem;
-	margin-top: 1.3125rem;
-	margin-bottom: 1.3125rem;
-}
-
-h3 {
-	font-size: 1.4375rem;
-	line-height: 2.625rem;
-	margin-top: 1.3125rem;
-	margin-bottom: 0rem;
-}
-
-p, ul, ol, pre, table, blockquote {
-	margin-top: 0rem;
-	margin-bottom: 1.3125rem;
-}
-
-ul ul, ol ol, ul ol, ol ul {
-	margin-top: 0rem;
-	margin-bottom: 0rem;
-}
-
-a {
-	cursor: pointer;
-	text-decoration: none;
-	color: $primary;
-
-	&:hover {
-		color: lighten($primary, 15%);
-	}
-}
-
-//globals
-section {
-	display: flex;
-	max-width: 1200px;
-	margin: 0 auto;
-}
-
-.col1,
-.col2 {
-	flex-grow: 1;
-	flex-basis: 0;
-	padding: 1rem;
-}
-
-.button {
-	background: $primary;
-	color: white;
-	outline: none;
-	appearance: none;
-	cursor: pointer;
-	border: 0;
-	border-radius: 3px;
-	min-width: 150px;
-	font-size: 1rem;
-	font-weight: bold;
-	padding: 0.8rem 1rem;
-
-	&:hover {
-		background: lighten($primary, 5%);
-	}
-
-	&:disabled {
-		opacity: 0.5;
-
-		&:hover {
-			background: $primary;
-		}
-	}
-}
-
-form {
-	input {
-		display: block;
-		width: 100%;
-		margin-bottom: 1rem;
-		font-size: 1rem;
-		padding: 10px;
-		outline: 0;
-		border: 1px solid #e6ecf0;
-		border-radius: 3px;
-		font-weight: bold;
-
-		&:focus {
-			box-shadow: 0 0 5px 0 rgba($shadow, 0.2);
-		}
-	}
-}
-
-.inline {
-	margin: 0;
-	list-style: none;
-
-	li {
-	  display: inline-block;
-	}
+  .btn:focus {
+    outline: none;
   }
-
-.error-msg {
-	margin-top: 1rem;
-	text-align: center;
-
-	p {
-		color: $error;
-	}
 }
 
-[v-cloak] {
-	display: none;
-}
+// a {
+// 	cursor: pointer;
+// 	text-decoration: none;
+// 	color: $primary;
 
-table,
-td,
-th {
-  min-width: 200px;
-  border: 2px solid $primary;
-  border-collapse: collapse;
-  padding: 10px;
-}
+// 	&:hover {
+// 		color: lighten($primary, 15%);
+// 	}
+// }
+
+// //globals
+// section {
+// 	display: flex;
+// 	max-width: 1200px;
+// 	margin: 0 auto;
+// }
+
+// .col1,
+// .col2 {
+// 	flex-grow: 1;
+// 	flex-basis: 0;
+// 	padding: 1rem;
+// }
+
+// .button {
+// 	background: $primary;
+// 	color: white;
+// 	outline: none;
+// 	appearance: none;
+// 	cursor: pointer;
+// 	border: 0;
+// 	border-radius: 3px;
+// 	min-width: 150px;
+// 	font-size: 1rem;
+// 	font-weight: bold;
+// 	padding: 0.8rem 1rem;
+
+// 	&:hover {
+// 		background: lighten($primary, 5%);
+// 	}
+
+// 	&:disabled {
+// 		opacity: 0.5;
+
+// 		&:hover {
+// 			background: $primary;
+// 		}
+// 	}
+// }
+
+// form {
+// 	input {
+// 		display: block;
+// 		width: 100%;
+// 		margin-bottom: 1rem;
+// 		font-size: 1rem;
+// 		padding: 10px;
+// 		outline: 0;
+// 		border: 1px solid #e6ecf0;
+// 		border-radius: 3px;
+// 		font-weight: bold;
+
+// 		&:focus {
+// 			box-shadow: 0 0 5px 0 rgba($shadow, 0.2);
+// 		}
+// 	}
+// }
+
+// .inline {
+// 	margin: 0;
+// 	list-style: none;
+
+// 	li {
+// 	  display: inline-block;
+// 	}
+//   }
+
+// .error-msg {
+// 	margin-top: 1rem;
+// 	text-align: center;
+
+// 	p {
+// 		color: $error;
+// 	}
+// }
+
+// [v-cloak] {
+// 	display: none;
+// }
+
+// table,
+// td,
+// th {
+//   min-width: 200px;
+//   border: 2px solid $primary;
+//   border-collapse: collapse;
+//   padding: 10px;
+// }
