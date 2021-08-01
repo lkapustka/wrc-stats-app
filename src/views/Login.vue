@@ -1,64 +1,58 @@
 <template>
   <div class="container">
+    <PasswordReset
+      v-if="showPasswordReset"
+      @close="togglePaswordReset"
+    ></PasswordReset>
     <div class="bg">
       <div class="bg__img"></div>
     </div>
 
-    <transition name="fade" mode="out-in" appear>
-      <form class="form" v-if="showLoginForm" key="true" @submit.prevent>
-        <h1 class="form__title">Welcome Back</h1>
-        <div class="form__test">
-          <input
-            class="form__input"
-            v-model.trim="loginForm.email"
-            type="text"
-            placeholder="E-mail"
-          />
-        </div>
+    <form class="form" v-if="showLoginForm" @submit.prevent>
+      <h1 class="form__title">Welcome Back</h1>
+      <div class="form__test">
         <input
           class="form__input"
-          v-model.trim="loginForm.password"
-          type="password"
-          placeholder="Password"
-        />
-        <button @click="login" type="submit" class="btn form__btn">Log In</button>
-      </form>
-
-      <form class="form" v-else key="false" @submit.prevent>
-        <h1 class="form__title">Get Started</h1>
-        <input
-          class="form__input"
-          v-model.trim="signupForm.name"
-          type="text"
-          placeholder="Your nick"
-        />
-        <!-- <input
-        class="form__input"
-        v-model.trim="signupForm.friend"
-        type="text"
-        placeholder="Your friend name"
-      /> -->
-        <input
-          class="form__input"
-          v-model.trim="signupForm.email"
+          v-model.trim="loginForm.email"
           type="text"
           placeholder="E-mail"
         />
-        <input
-          class="form__input"
-          v-model.trim="signupForm.password"
-          type="password"
-          placeholder="Password"
-        />
-        <button class="btn form__btn" @click="signup">Sign Up</button>
-      </form>
-    </transition>
-
-    <div class="extras" v-if="showLoginForm" key="true">
+      </div>
+      <input
+        class="form__input"
+        v-model.trim="loginForm.password"
+        type="password"
+        placeholder="Password"
+      />
+      <button class="btn form__btn" type="submit" @click="login">Log In</button>
+    </form>
+    <form class="form" v-else @submit.prevent>
+      <h1 class="form__title">Get Started</h1>
+      <input
+        class="form__input"
+        v-model.trim="signupForm.name"
+        type="text"
+        placeholder="Your nick"
+      />
+      <input
+        class="form__input"
+        v-model.trim="signupForm.email"
+        type="text"
+        placeholder="E-mail"
+      />
+      <input
+        class="form__input"
+        v-model.trim="signupForm.password"
+        type="password"
+        placeholder="Password"
+      />
+      <button class="btn form__btn" @click="signup">Sign Up</button>
+    </form>
+    <div class="extras" v-if="showLoginForm">
       <a class="extras__link" @click="togglePaswordReset">Forgot Password?</a>
       <a class="extras__link" @click="toggleForm">Sign Up</a>
     </div>
-    <div class="extras extras--signup" v-else key="false">
+    <div class="extras extras--signup" v-else>
       <a class="extras__link" @click="toggleForm">Back to Log In</a>
     </div>
   </div>
@@ -133,10 +127,10 @@
 
 <script>
 import { reactive, ref, inject } from "@vue/composition-api";
-//import PasswordReset from "@/components/PasswordReset.vue";
+import PasswordReset from "@/components/PasswordReset.vue";
 
 export default {
-  //components: { PasswordReset },
+  components: { PasswordReset },
 
   setup() {
     const store = inject("vuex-store");
@@ -224,7 +218,6 @@ export default {
   width: 80%;
   height: 80%;
   flex-direction: column;
-  //justify-content: flex-start;
 
   &__title {
     margin: 1em 0 1.5em;
@@ -238,14 +231,13 @@ export default {
     width: 100%;
     margin-bottom: 1.5em;
     padding: 0.5em 0;
-    border: none;
+    background-color: transparent;
     border-style: none none solid;
     border-color: rgb(255, 255, 255);
     color: white;
     font-weight: bold;
     font-size: 2rem;
     font-family: inherit;
-    background-color: transparent;
     letter-spacing: 1px;
 
     &::placeholder {
@@ -291,18 +283,15 @@ export default {
   }
 }
 
-.fade-enter-active {
-  transition: opacity 0.3s;
-}
+// .fade-enter-active,
+// .fade-leave-active {
+//   transition: opacity 0.5s ease;
+// }
 
-.fade-leave-active {
-  transition: opacity 0.2s;
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
+// .fade-enter,
+// .fade-leave-to {
+//   opacity: 0;
+// }
 
 // .login {
 //   background: linear-gradient(
