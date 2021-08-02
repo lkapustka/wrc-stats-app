@@ -1,60 +1,82 @@
 <template>
   <div class="container">
+    <div class="bg">
+      <div class="bg__img"></div>
+    </div>
     <PasswordReset
       v-if="showPasswordReset"
       @close="togglePaswordReset"
     ></PasswordReset>
-    <div class="bg">
-      <div class="bg__img"></div>
-    </div>
-
-    <form class="form" v-if="showLoginForm" @submit.prevent>
-      <h1 class="form__title">Welcome Back</h1>
-      <div class="form__test">
-        <input
-          class="form__input"
-          v-model.trim="loginForm.email"
-          type="text"
-          placeholder="E-mail"
-        />
+    <transition name="fade" mode="out-in">
+      <form class="form" v-if="showLoginForm" key="true" @submit.prevent>
+        <h1 class="form__title">Welcome Back</h1>
+        <div class="form__box">
+          <input
+            class="form__input"
+            type="email"
+            id="email-login"
+            v-model.trim="loginForm.email"
+          />
+          <label class="form__label" for="email-login">E-mail</label>
+        </div>
+        <div class="form__box">
+          <input
+            class="form__input"
+            type="password"
+            id="password-login"
+            v-model.trim="loginForm.password"
+          />
+          <label class="form__label" for="password-login">Password</label>
+        </div>
+        <button class="btn form__btn" type="submit" @click="login">
+          Log In
+        </button>
+      </form>
+    </transition>
+    <transition name="fade" mode="out-in">
+      <form class="form" v-if="!showLoginForm" @submit.prevent>
+        <h1 class="form__title">Get Started</h1>
+        <div class="form__box">
+          <input
+            class="form__input"
+            type="text"
+            id="name"
+            v-model.trim="signupForm.name"
+          />
+          <label class="form__label" for="name">Your name</label>
+        </div>
+        <div class="form__box">
+          <input
+            class="form__input"
+            type="email"
+            id="email-signup"
+            v-model.trim="signupForm.email"
+          />
+          <label class="form__label" for="email-signup">E-mail</label>
+        </div>
+        <div class="form__box">
+          <input
+            class="form__input"
+            type="password"
+            id="password-signup"
+            v-model.trim="signupForm.password"
+          />
+          <label class="form__label" for="password-signup">Password</label>
+        </div>
+        <button class="btn form__btn" @click="signup">Sign Up</button>
+      </form>
+    </transition>
+    <transition name="fade" mode="out-in">
+      <div class="extras" v-if="showLoginForm">
+        <a class="extras__link" @click="togglePaswordReset">Forgot Password?</a>
+        <a class="extras__link" @click="toggleForm">Sign Up</a>
       </div>
-      <input
-        class="form__input"
-        v-model.trim="loginForm.password"
-        type="password"
-        placeholder="Password"
-      />
-      <button class="btn form__btn" type="submit" @click="login">Log In</button>
-    </form>
-    <form class="form" v-else @submit.prevent>
-      <h1 class="form__title">Get Started</h1>
-      <input
-        class="form__input"
-        v-model.trim="signupForm.name"
-        type="text"
-        placeholder="Your nick"
-      />
-      <input
-        class="form__input"
-        v-model.trim="signupForm.email"
-        type="text"
-        placeholder="E-mail"
-      />
-      <input
-        class="form__input"
-        v-model.trim="signupForm.password"
-        type="password"
-        placeholder="Password"
-      />
-      <button class="btn form__btn" @click="signup">Sign Up</button>
-    </form>
-    <div class="extras" v-if="showLoginForm">
-      <a class="extras__link" @click="togglePaswordReset">Forgot Password?</a>
-      <a class="extras__link" @click="toggleForm">Sign Up</a>
-    </div>
-    <div class="extras extras--signup" v-else>
-      <a class="extras__link" @click="toggleForm">Back to Log In</a>
-    </div>
+    </transition>
+    <transition name="fade" mode="out-in">
+      <div class="extras extras--signup" v-if="!showLoginForm">
+        <a class="extras__link" @click="toggleForm">Back to Log In</a>
+      </div>
+    </transition>
   </div>
 
   <!-- <div class="login">
@@ -220,44 +242,63 @@ export default {
   flex-direction: column;
 
   &__title {
-    margin: 1em 0 1.5em;
-    font-size: 3.5rem;
+    margin: 1em 0 1em;
     align-self: center;
+    font-size: 3.5rem;
     letter-spacing: 1px;
+  }
+
+  &__box {
+    position: relative;
+    margin-bottom: 3.5em;
+
+    &::after {
+      content: "";
+      display: block;
+      height: 0.3em;
+      background-color: white;
+      opacity: 0.7;
+      transition: opacity 0.4s ease;
+    }
+
+    &:focus-within::after,
+    &:focus-within > .form__label {
+      opacity: 1;
+    }
   }
 
   &__input {
     display: block;
     width: 100%;
-    margin-bottom: 1.5em;
     padding: 0.5em 0;
     background-color: transparent;
-    border-style: none none solid;
-    border-color: rgb(255, 255, 255);
+    border: none;
     color: white;
-    font-weight: bold;
     font-size: 2rem;
+    font-weight: bold;
     font-family: inherit;
     letter-spacing: 1px;
 
-    &::placeholder {
-      color: white;
-      font-weight: bold;
-      letter-spacing: 1px;
-      transition: opacity 2s;
-    }
-
     &:focus {
-      outline: none;
-      //border-color: rgb(124, 123, 123);
       color: white;
       font-weight: bold;
     }
   }
 
+  &__label {
+    position: absolute;
+    top: 3.5em;
+    color: white;
+    font-size: 1.6rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    transition: opacity 0.4s ease;
+  }
+
   &__btn {
     margin: 2em 0;
-    background-color: rgba(23, 31, 192, 0.5);
+    background-color: rgba(23, 31, 192, 0.7);
     font-weight: bold;
     letter-spacing: 1px;
   }
@@ -282,64 +323,4 @@ export default {
     letter-spacing: 1px;
   }
 }
-
-// .fade-enter-active,
-// .fade-leave-active {
-//   transition: opacity 0.5s ease;
-// }
-
-// .fade-enter,
-// .fade-leave-to {
-//   opacity: 0;
-// }
-
-// .login {
-//   background: linear-gradient(
-//     to right,
-//     $primary 0%,
-//     $primary 50%,
-//     white 50%,
-//     white 100%
-//   );
-// }
-
-// .col1,
-// .col2 {
-//   height: 100vh;
-//   padding-top: 30vh;
-// }
-
-// .col1 {
-//   color: white;
-
-//   p {
-//     max-width: 510px;
-//     line-height: 1.8;
-//     font-weight: bold;
-//   }
-// }
-
-// .col2 {
-//   color: $primary;
-
-//   form {
-//     margin: 0 auto;
-//     max-width: 450px;
-//     font-weight: bold;
-//   }
-
-//   .extras {
-//     float: right;
-//     text-align: right;
-
-//     a {
-//       display: block;
-//       margin-bottom: 0.5rem;
-//     }
-//   }
-// }
-
-// .signup-form {
-//   padding-top: 30vh;
-// }
 </style>
