@@ -29,16 +29,28 @@ body {
 
 .btn {
   padding: 1em 1.5em;
-  font-size: 1.6rem;
-  font-family: inherit;
-  color: white;
+  min-width: 150px;
   background: $primary;
   border: none;
-  min-width: 150px;
+  color: white;
+  font-size: 1.6rem;
+  font-family: inherit;
 
   .btn:focus {
-    outline: none;
+    border: 1px solid white;
   }
+}
+
+//animations
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.4s ease;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 
 // a {
