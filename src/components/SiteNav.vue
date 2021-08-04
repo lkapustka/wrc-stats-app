@@ -7,10 +7,10 @@
         </router-link>
         <ul class="inline">
           <li>
-            <router-link to="/">Dashboard</router-link>
+            <router-link to="/"> Dashboard </router-link>
           </li>
           <li>
-            <router-link to="/settings">Settings</router-link>
+            <router-link to="/settings"> Settings </router-link>
           </li>
           <li><a @click="logout">Logout</a></li>
         </ul>
@@ -41,7 +41,7 @@ export default defineComponent({
 
 header {
   background: white;
-  box-shadow: 0 0 5px 0 rgba($shadow, 0.5);
+  box-shadow: 0 0 5px 0 rgba(var(--shadow), 0.5);
   z-index: 10;
 
   .col1 {

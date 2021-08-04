@@ -56,7 +56,7 @@ export default defineComponent({
   }
 
   .input {
-    background: $secondary;
+    background: var(--secondary);
     border-radius: 3px;
     text-align: center;
     font-size: 1rem;
@@ -64,7 +64,7 @@ export default defineComponent({
     min-width: 400px;
     grid-row: 2;
     grid-column: 5 / 8;
-    color: $primary;
+    color: var(--primary);
     font-weight: bold;
     line-height: 2.1rem;
   }
