@@ -59,13 +59,13 @@ export default {
 <style lang="scss" scoped>
 .bg {
   width: 100%;
-  height: 100vmax;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.6);
 
   &__img {
     position: absolute;
-    width: 100%;
-    height: 100vmax;
+    width: 100vw;
+    height: 100vh;
     background-image: url("../../public/img/bg-login-small.jpg");
     background-size: cover;
     background-position: center;
