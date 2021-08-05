@@ -1,9 +1,7 @@
 <template>
   <div class="container">
-    <h1 class="title title--margin">Reset Password</h1>
-    <p class="text text--description">
-      Enter your email adress below to reset password
-    </p>
+    <h1 class="title">Reset Password</h1>
+    <p class="text">Enter your email adress below to reset password</p>
     <form class="form" @submit.prevent>
       <div class="form__box">
         <label class="form__label" for="email-reset">E-mail</label>
@@ -18,9 +16,8 @@
         Reset
       </button>
     </form>
-
-    <p class="text text--error" v-if="errorMsg !== ''">
-      {{ errorMsg }}
+    <p class="text text--error" v-if="errorMassage !== ''">
+      {{ errorMassage }}
     </p>
     <p class="text text--success" v-if="showSuccess">
       Success! Check your email for a reset link.
@@ -37,23 +34,23 @@ import { auth } from "@/firebase";
 
 export default defineComponent({
   setup() {
-    const errorMsg = ref("");
+    const errorMassage = ref("");
     const email = ref("");
     const showSuccess = ref(false);
 
     const resetPassword = async () => {
-      errorMsg.value = "";
+      errorMassage.value = "";
 
       try {
         await auth.sendPasswordResetEmail(email.value);
         showSuccess.value = true;
       } catch (err) {
-        errorMsg.value = err.message;
+        errorMassage.value = err.message;
       }
     };
 
     return {
-      errorMsg,
+      errorMassage,
       showSuccess,
       resetPassword,
     };
@@ -62,19 +59,11 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.title--margin {
-  margin-bottom: 0.5em;
-}
-
 .text {
   width: 80%;
   font-size: 1.6rem;
   font-weight: bold;
   text-align: center;
-
-  &--description {
-    margin-bottom: 4em;
-  }
 
   &--error {
     color: var(--error);
@@ -82,6 +71,18 @@ export default defineComponent({
 
   &--success {
     color: var(--success);
+  }
+}
+
+@media (min-width: 768px) {
+  .text {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .text {
+    font-size: 3.5rem;
   }
 }
 </style>

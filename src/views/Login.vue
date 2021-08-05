@@ -2,26 +2,28 @@
   <div class="bg">
     <div class="bg__img" />
     <transition name="fade" mode="out-in">
-      <component :is="selectedComponent">
-        <a
-          class="extras__link"
-          slot="two-links"
-          @click="selectedComponent = 'form-password-reset'"
-          >Forgot Password?</a
-        >
-        <a
-          class="extras__link"
-          slot="two-links"
-          @click="selectedComponent = 'form-sign-up'"
-          >Sign Up</a
-        >
-        <a
-          class="extras__link"
-          slot="link"
-          @click="selectedComponent = 'form-login'"
-          >Back to Log In</a
-        >
-      </component>
+      <keep-alive>
+        <component :is="selectedComponent">
+          <a
+            class="extras__link"
+            slot="two-links"
+            @click="selectedComponent = 'form-password-reset'"
+            >Forgot Password?</a
+          >
+          <a
+            class="extras__link"
+            slot="two-links"
+            @click="selectedComponent = 'form-sign-up'"
+            >Sign Up</a
+          >
+          <a
+            class="extras__link"
+            slot="link"
+            @click="selectedComponent = 'form-login'"
+            >Back to Log In</a
+          >
+        </component>
+      </keep-alive>
     </transition>
   </div>
   <!-- <p>
@@ -56,18 +58,30 @@ export default {
 
 <style lang="scss" scoped>
 .bg {
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(38, 70, 83, 0.6); //rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100vmax;
+  background-color: rgba(0, 0, 0, 0.6);
 
   &__img {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 100vmax;
     background-image: url("../../public/img/bg-login-small.jpg");
     background-size: cover;
-    background-position: 35% 0;
+    background-position: center;
     z-index: -10;
+  }
+}
+
+@media (min-width: 768px) {
+  .bg__img {
+    background-image: url("../../public/img/bg-login-large.jpg");
+  }
+}
+
+@media (min-width: 1200px) {
+  .bg__img {
+    background-image: url("../../public/img/bg-login-xl.jpg");
   }
 }
 </style>

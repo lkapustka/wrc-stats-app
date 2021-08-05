@@ -6,7 +6,7 @@
   --primary: #2a9d8f; //#3e1e68;
   --secondary: #e9c46a; //#f4f1fe;
   --cta-color: #e76f51;
-  --bg: #264653;
+  --bg: #3d405b; //#264653;
   --error: #ef5777;
   --success: #1abc9c;
   --shadow: #34495e;
@@ -36,6 +36,7 @@ body {
   width: 100%;
   height: 100%;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -53,9 +54,10 @@ body {
 
 //login view
 .title {
-  margin: 1.5em 0;
+  margin-top: 1.5em;
   align-self: center;
   font-size: 3.5rem;
+  text-align: center;
 }
 
 .form {
@@ -109,16 +111,15 @@ body {
   }
 
   &__btn {
-    margin: 2em 0;
+    margin-top: 2em;
   }
 }
 
 .extras {
-  position: absolute;
   display: flex;
-  bottom: 0;
   width: 100%;
   justify-content: space-between;
+  align-items: flex-end;
 
   &--center {
     justify-content: center;
@@ -128,6 +129,61 @@ body {
     padding: 1.5em;
     font-size: 1.6rem;
     font-weight: bold;
+  }
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 5rem;
+  }
+
+  .form {
+    &__box::after {
+      height: 0.2em;
+    }
+
+    &__input {
+      font-size: 3.5rem;
+    }
+
+    &__box,
+    &__label,
+    &__btn {
+      font-size: 2.5rem;
+    }
+  }
+
+  .extras__link {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .title {
+    font-size: 7rem;
+  }
+
+  .form {
+    &__input {
+      font-size: 4.5rem;
+    }
+
+    &__box,
+    &__label,
+    &__btn {
+      font-size: 3.5rem;
+    }
+  }
+
+  .extras__link {
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+
+  .form {
+    max-width: 1200px;
   }
 }
 
