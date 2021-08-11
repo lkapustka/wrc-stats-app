@@ -1,6 +1,6 @@
 <template>
   <div id="app" v-cloak>
-    <SiteNav v-if="showNav"></SiteNav>
+    <site-nav v-if="showNav"></site-nav>
     <router-view />
   </div>
 </template>
@@ -25,4 +25,6 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+@import "./assets/scss/main.scss";
+</style>
