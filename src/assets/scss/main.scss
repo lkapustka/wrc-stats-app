@@ -1,5 +1,6 @@
 //imports
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300");
+//@import url("https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Source+Sans+Pro:wght@400;600;700;900&display=swap");
 
 //colors
 :root {
@@ -11,6 +12,8 @@
   --success: #1abc9c;
   --shadow: #34495e;
   --text-color: white;
+  --gradient-dark: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(77, 201, 185, 0.7));
+  --gradient: linear-gradient(45deg, rgba(128, 255, 219, 0.7), rgba(116, 0, 184, 0.7));
 }
 
 //resets
