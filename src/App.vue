@@ -1,16 +1,16 @@
 <template>
   <div id="app" v-cloak>
-    <site-nav v-if="showNav"></site-nav>
+    <nav-site v-if="showNav"></nav-site>
     <router-view />
   </div>
 </template>
 
 <script>
 import { computed, inject } from "@vue/composition-api";
-import SiteNav from "./components/SiteNav";
+import NavSite from "./components/NavSite";
 
 export default {
-  components: { SiteNav },
+  components: { NavSite },
 
   setup() {
     const store = inject("vuex-store");
