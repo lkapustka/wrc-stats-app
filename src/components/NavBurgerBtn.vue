@@ -1,10 +1,11 @@
 <template>
   <button
-    class="hamburger hamburger--elastic"
+    :class="[{ 'is-active': isActive }, 'hamburger hamburger--elastic']"
     type="button"
-    onclick="this.classList.toggle('is-active'); this.setAttribute('aria-expanded', this.classList.contains('is-active'))"
+    @click="$emit('click'), toggleClassAndAria()"
     aria-label="Menu"
     aria-controls="navigation"
+    :aria-expanded="isActive.toString()"
   >
     <span class="hamburger-box">
       <span class="hamburger-inner"></span>
@@ -13,11 +14,23 @@
 </template>
 
 <script>
-import { defineComponent } from "@vue/composition-api";
+import { defineComponent, ref } from "@vue/composition-api";
 
 export default defineComponent({
   name: "NavBurgerBtn",
-  setup() {},
+
+  setup() {
+    const isActive = ref(false);
+
+    const toggleClassAndAria = () => {
+      isActive.value = !isActive.value;
+    };
+
+    return {
+      isActive,
+      toggleClassAndAria,
+    };
+  },
 });
 </script>
 
@@ -44,10 +57,12 @@ $hamburger-active-hover-filter: $hamburger-hover-filter !default;
 // Hamburger
 // ==================================================
 .hamburger {
+  //================Custom settings =================
   position: fixed;
   top: 0;
   right: 0;
   z-index: 1000;
+  // =================================================
 
   padding: $hamburger-padding-y $hamburger-padding-x;
   display: inline-block;
