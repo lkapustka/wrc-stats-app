@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300");
 //@import url("https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Source+Sans+Pro:wght@400;600;700;900&display=swap");
 
-//colors
+// VARIABLES =========================================
 :root {
   --primary: #2a9d8f; //#3e1e68;
   --secondary: #e9c46a; //#f4f1fe;
@@ -12,11 +12,16 @@
   --success: #1abc9c;
   --shadow: #34495e;
   --text-color: white;
-  --gradient-dark: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(77, 201, 185, 0.7));
+
+  --gradient-color-first: rgba(128, 255, 219, 0.7);
+  --gradient-color-second: rgba(116, 0, 184, 0.7);
+
   --gradient: linear-gradient(45deg, rgba(128, 255, 219, 0.7), rgba(116, 0, 184, 0.7));
+  --gradient-solid: linear-gradient(45deg, rgb(128, 255, 219), rgb(116, 0, 184));
+  --gradient-dark: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(77, 201, 185, 0.7));
 }
 
-//resets
+// RESETS =========================================
 *,
 *::before,
 *::after {
@@ -36,7 +41,7 @@ body {
   color: var(--text-color);
 }
 
-//global
+// GLOBAL =========================================
 [v-cloak] {
   display: none;
 }
@@ -56,14 +61,20 @@ body {
   background: var(--primary);
   border: none;
   border-radius: 4px;
-  color: white;
+  color: var(--text-color);
   font-size: 1.6rem;
   font-weight: bold;
   font-family: inherit;
   cursor: pointer;
 }
 
-//login view
+.link {
+  text-decoration: none;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+// LOGIN VIEW =========================================
 .title {
   margin: 1.5em 0;
   align-self: center;
@@ -153,7 +164,7 @@ body {
   }
 }
 
-//animations
+// ANIMATIONS =========================================
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s ease;
@@ -163,5 +174,3 @@ body {
 .fade-leave-to {
   opacity: 0;
 }
-
-//mixins
