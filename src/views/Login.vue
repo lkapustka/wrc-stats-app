@@ -1,36 +1,28 @@
 <template>
   <div class="bg">
-    <div class="bg__img" />
-    <transition name="fade" mode="out-in">
-      <keep-alive>
-        <component :is="selectedComponent">
-          <a
-            class="extras__link"
-            slot="two-links"
-            @click="selectedComponent = 'form-password-reset'"
-            >Forgot Password?</a
-          >
-          <a
-            class="extras__link"
-            slot="two-links"
-            @click="selectedComponent = 'form-sign-up'"
-            >Sign Up</a
-          >
-          <a
-            class="extras__link"
-            slot="link"
-            @click="selectedComponent = 'form-login'"
-            >Back to Log In</a
-          >
-        </component>
-      </keep-alive>
+    <transition
+      name="fade"
+      mode="out-in"
+    >
+      <component :is="selectedComponent">
+        <a
+          slot="two-links"
+          class="link extras__link"
+          @click="selectedComponent = 'form-password-reset'"
+        >Forgot Password?</a>
+        <a
+          slot="two-links"
+          class="link extras__link"
+          @click="selectedComponent = 'form-sign-up'"
+        >Sign Up</a>
+        <a
+          slot="link"
+          class="link extras__link"
+          @click="selectedComponent = 'form-login'"
+        >Back to Log In</a>
+      </component>
     </transition>
   </div>
-  <!-- <p>
-      Do you like The WRC game series? Are you racing against a friend in split-screen mode and
-      would you like to save the results of your competition and even play the championship against
-      each other? This application will help you with that.
-    </p> -->
 </template>
 
 <script>
@@ -58,30 +50,17 @@ export default {
 
 <style lang="scss" scoped>
 .bg {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.6);
-
-  &__img {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background-image: url("../../public/img/bg-login-small.jpg");
-    background-size: cover;
-    background-position: center;
-    z-index: -10;
-  }
+  @include heroImages(linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), "../../public/img/bg-login-small.jpg");
 }
 
-@media (min-width: 768px) {
-  .bg__img {
-    background-image: url("../../public/img/bg-login-large.jpg");
-  }
-}
-
-@media (min-width: 1200px) {
-  .bg__img {
-    background-image: url("../../public/img/bg-login-xl.jpg");
+@media (min-width: 992px) {
+  .bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../../public/img/bg-login-xl.jpg");
   }
 }
 </style>
