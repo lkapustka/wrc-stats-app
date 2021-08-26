@@ -15,16 +15,30 @@ const routes = [
     },
   },
   {
+    path: "/rallies",
+    name: "Rallies Stats",
+    component: () => import("../views/Rallies.vue"),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
     path: "/login",
     name: "Login",
-    component: () =>
-      import(/* webpackChunkName: "login" */ "../views/Login.vue"),
+    component: () => import( "../views/Login.vue"),
   },
   {
     path: "/settings",
     name: "Settings",
-    component: () =>
-      import(/* webpackChunkName: "settings" */ "../views/Settings.vue"),
+    component: () => import("../views/Settings.vue"),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: "/logout",
+    name: "Logout",
+    component: () => import("../views/Logout.vue"),
     meta: {
       requiresAuth: true,
     },
