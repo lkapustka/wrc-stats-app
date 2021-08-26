@@ -154,6 +154,16 @@ body {
   }
 }
 
+@media (max-height: 500px) {
+  .container {
+    display: block;
+  }
+
+  .extras {
+    margin: auto;
+  }
+}
+
 // ANIMATIONS =========================================
 .fade-enter-active,
 .fade-leave-active {
