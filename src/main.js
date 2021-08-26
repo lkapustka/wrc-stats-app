@@ -20,6 +20,7 @@ auth.onAuthStateChanged((user) => {
     app = new Vue({
       setup() {
         provide("vuex-store", store);
+        provide("vue-router", router);
       },
       router,
       store,
