@@ -1,7 +1,11 @@
 <template>
   <header class="header section">
-    <h1 class="header__heading">{{ heading }}</h1>
-    <p class="header__text">{{ headerText }}</p>
+    <h1 class="header__heading">
+      {{ heading }}
+    </h1>
+    <p class="header__text">
+      {{ headerText }}
+    </p>
   </header>
 </template>
 
@@ -10,6 +14,7 @@ import { defineComponent, ref } from "@vue/composition-api";
 
 export default defineComponent({
   name: "HeaderSite",
+  
   setup() {
     const heading = ref("WRC Stats");
     const headerText = ref(
@@ -35,7 +40,7 @@ export default defineComponent({
   align-items: center;
   color: var(--text-color);
   text-align: center;
-  @include heroImages("../../public/img/header-small.jpg");
+  @include heroImages(var(--gradient), "../../public/img/header-small.jpg");
 
   &__heading {
     font-size: 4.8rem;

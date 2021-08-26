@@ -1,26 +1,43 @@
 <template>
   <div class="container">
-    <h1 class="title">Welcome Back</h1>
-    <form class="form" @submit.prevent>
+    <h1 class="heading">
+      Welcome Back
+    </h1>
+    <form
+      class="form"
+      @submit.prevent
+    >
       <div class="form__box">
-        <label class="form__label" for="email-login">E-mail</label>
+        <label
+          class="form__label"
+          for="email-login"
+        >E-mail</label>
         <input
-          class="form__input"
           id="email-login"
-          type="email"
           v-model.trim="loginForm.email"
-        />
+          class="form__input"
+          type="email"
+        >
       </div>
       <div class="form__box">
-        <label class="form__label" for="password-login">Password</label>
+        <label
+          class="form__label"
+          for="password-login"
+        >Password</label>
         <input
-          class="form__input"
           id="password-login"
-          type="password"
           v-model.trim="loginForm.password"
-        />
+          class="form__input"
+          type="password"
+        >
       </div>
-      <button class="btn form__btn" type="submit" @click="login">Log In</button>
+      <button
+        class="btn form__btn"
+        type="submit"
+        @click="login"
+      >
+        Log In
+      </button>
     </form>
     <div class="extras">
       <slot name="two-links" />

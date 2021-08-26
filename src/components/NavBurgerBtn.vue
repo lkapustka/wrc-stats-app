@@ -2,13 +2,13 @@
   <button
     :class="[{ 'is-active': isActive }, 'hamburger hamburger--elastic']"
     type="button"
-    @click="$emit('click'), toggleClassAndAria()"
     aria-label="Menu"
     aria-controls="navigation"
     :aria-expanded="isActive.toString()"
+    @click="$emit('click'), toggleClassAndAria()"
   >
     <span class="hamburger-box">
-      <span class="hamburger-inner"></span>
+      <span class="hamburger-inner" />
     </span>
   </button>
 </template>
@@ -186,8 +186,8 @@ $hamburger-active-hover-filter: $hamburger-hover-filter !default;
 
 @media (min-width: 992px) {
   .hamburger {
-    top: 20px;
-    right: 20px;
+    top: 1em;
+    right: 1em;
   }
 }
 </style>
