@@ -5,7 +5,7 @@
     aria-label="Menu"
     aria-controls="navigation"
     :aria-expanded="isActive.toString()"
-    @click="$emit('click'), toggleClassAndAria()"
+    @click="$emit('click')"
   >
     <span class="hamburger-box">
       <span class="hamburger-inner" />
@@ -14,22 +14,16 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "@vue/composition-api";
+import { defineComponent } from "@vue/composition-api";
 
 export default defineComponent({
   name: "NavBurgerBtn",
-
-  setup() {
-    const isActive = ref(false);
-
-    const toggleClassAndAria = () => {
-      isActive.value = !isActive.value;
-    };
-
-    return {
-      isActive,
-      toggleClassAndAria,
-    };
+  props: {
+    isActive: {
+      type: Boolean,
+      required: true,
+      default: false,
+    }
   },
 });
 </script>
