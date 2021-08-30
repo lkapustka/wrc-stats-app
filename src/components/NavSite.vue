@@ -1,49 +1,34 @@
 <template>
   <nav class="nav">
-    <div class="nav__wrapper" :class="{ 'nav__wrapper--active': navActive }">
-      <ul class="nav__items">
-
-
-        <!-- <li class="nav__item" :class="{ 'nav-items-animation': navActive }">
-          <router-link to="/" class="link"> Dashboard </router-link>
-        </li>
-        <li
-          @click="toggleMenu"
-          class="nav__item"
+    <div :class="[{ 'nav__wrapper--active': navActive }, 'nav__wrapper']">
+      <div
+        v-for="(route, index) in routes"
+        :key="route.path"
+        class="nav__item-wrapper"
+        @click="toggleMenu"
+      >
+        <router-link
           :class="[
             { 'nav-items-animation': navActive },
-            'nav-items-animation--delay1',
+            [`nav-items-animation--delay-${index}`],
+            'link',
+            'nav__item',
           ]"
+          :to="route"
         >
-          <router-link to="/" class="link"> Rallies Stats </router-link>
-        </li>
-        <li
-          class="nav__item"
-          :class="[
-            { 'nav-items-animation': navActive },
-            'nav-items-animation--delay2',
-          ]"
-        >
-          <router-link to="/settings" class="link"> Settings </router-link>
-        </li>
-        <li
-          class="nav__item"
-          :class="[
-            { 'nav-items-animation': navActive },
-            'nav-items-animation--delay3',
-          ]"
-          @click="logout"
-        >
-          <router-link to="" class="link">Logout </router-link>
-        </li> -->
-      </ul>
+          {{ route.name }}
+        </router-link>
+      </div>
     </div>
-    <nav-burger-btn @click="toggleMenu" />
+    <nav-burger-btn
+      :is-active="navActive"
+      @click="toggleMenu"
+    />
   </nav>
 </template>
 
 <script>
-import { defineComponent, inject, ref } from "@vue/composition-api";
+import { computed, defineComponent, inject, ref } from "@vue/composition-api";
 import NavBurgerBtn from "./NavBurgerBtn.vue";
 
 export default defineComponent({
@@ -52,6 +37,7 @@ export default defineComponent({
 
   setup() {
     const store = inject("vuex-store");
+    const router = inject("vue-router");
     const navActive = ref(false);
 
     const toggleMenu = () => {
@@ -62,10 +48,24 @@ export default defineComponent({
       store.dispatch("logout");
     };
 
+    const routes = computed(() => {
+
+      let routes = [];
+      for (let i in router.options.routes) {
+
+        let route = router.options.routes[i];
+        if (Object.prototype.hasOwnProperty.call(route, "name") && route.name !== "Login") {
+          routes.push(route);
+        }
+      }
+      return routes;
+    });
+
     return {
       navActive,
       toggleMenu,
       logout,
+      routes,
     };
   },
 });
@@ -77,20 +77,26 @@ export default defineComponent({
 
   &__wrapper {
     position: fixed;
-    display: flex;
+    display: grid;
     top: 0;
     width: 100%;
     height: 100vh;
     justify-content: center;
+    align-content: center;
+    justify-items: center;
     align-items: center;
     background: var(--gradient-solid);
     transform: translateX(100%);
-    transition: 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+    transition: transform 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
     z-index: 100;
 
     &--active {
       transform: translateX(0);
     }
+  }
+
+  &__item-wrapper {
+    justify-self: start;
   }
 
   &__item {
@@ -132,15 +138,15 @@ export default defineComponent({
 .nav-items-animation {
   animation: navItemsAnimation 1s both;
 
-  &--delay1 {
+  &--delay-1 {
     animation-delay: 0.1s;
   }
 
-  &--delay2 {
+  &--delay-2 {
     animation-delay: 0.2s;
   }
 
-  &--delay3 {
+  &--delay-3 {
     animation-delay: 0.3s;
   }
 }
