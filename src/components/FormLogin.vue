@@ -5,7 +5,7 @@
     </h1>
     <form
       class="form"
-      @submit.prevent
+      @submit.prevent="login"
     >
       <div class="form__box">
         <label
