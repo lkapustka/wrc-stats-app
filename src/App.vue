@@ -1,16 +1,21 @@
 <template>
-  <div id="app" v-cloak>
-    <nav-site v-if="showNav"></nav-site>
+  <div
+    v-cloak
+    id="app"
+  >
+    <the-header v-if="showNav" />
+    <nav-site v-if="showNav" />
     <router-view />
   </div>
 </template>
 
 <script>
 import { computed, inject } from "@vue/composition-api";
-import NavSite from "./components/NavSite";
+import NavSite from './components/NavSite.vue';
+import TheHeader from './components/TheHeader.vue';
 
 export default {
-  components: { NavSite },
+  components: { NavSite, TheHeader },
 
   setup() {
     const store = inject("vuex-store");
