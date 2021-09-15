@@ -1,31 +1,20 @@
 <template>
   <header class="header section">
     <h1 class="header__heading">
-      {{ heading }}
+      WRC Stats
     </h1>
     <p class="header__text">
-      {{ headerText }}
+      An app for WRC players who race with friends on a split screen and want to record their
+      results.
     </p>
   </header>
 </template>
 
 <script>
-import { defineComponent, ref } from "@vue/composition-api";
+import { defineComponent } from "@vue/composition-api";
 
 export default defineComponent({
-  name: "HeaderSite",
-  
-  setup() {
-    const heading = ref("WRC Stats");
-    const headerText = ref(
-      "An app for WRC9 players who race with friends on a split screen and want to record their results."
-    );
-
-    return {
-      heading,
-      headerText,
-    };
-  },
+  name: "TheHeader",
 });
 </script>
 
@@ -43,6 +32,7 @@ export default defineComponent({
   @include heroImages(var(--gradient), "../../public/img/header-small.jpg");
 
   &__heading {
+    font-family: "Rock Salt", cursive;
     font-size: 4.8rem;
     font-weight: bold;
   }
