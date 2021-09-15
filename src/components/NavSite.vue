@@ -1,6 +1,12 @@
 <template>
   <nav class="nav">
     <div :class="[{ 'nav__wrapper--active': navActive }, 'nav__wrapper']">
+      <router-link
+        class="link nav__item nav__logo"
+        to="/"
+      >
+        WRC Stats
+      </router-link>
       <div
         v-for="(route, index) in routes"
         :key="route.path"
@@ -21,6 +27,7 @@
       </div>
     </div>
     <nav-burger-btn
+      class="nav__burger"
       :is-active="navActive"
       @click="toggleMenu"
     />
@@ -49,16 +56,7 @@ export default defineComponent({
     };
 
     const routes = computed(() => {
-
-      let routes = [];
-      for (let i in router.options.routes) {
-
-        let route = router.options.routes[i];
-        if (Object.prototype.hasOwnProperty.call(route, "name") && route.name !== "Login") {
-          routes.push(route);
-        }
-      }
-      return routes;
+      return router.options.routes.filter(route => route.meta.requiresAuth);
     });
 
     return {
@@ -89,6 +87,10 @@ export default defineComponent({
     transform: translateX(100%);
     transition: transform 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
     z-index: 100;
+
+    & > a.nav__logo {
+      display: none;
+    }
 
     &--active {
       transform: translateX(0);
@@ -148,6 +150,57 @@ export default defineComponent({
 
   &--delay-3 {
     animation-delay: 0.3s;
+  }
+}
+
+@media (min-width: 1200px) {
+  .nav {
+    position: sticky;
+    display: flex;
+    top: 0;
+    justify-content: center;
+    border: none;
+    background: var(--gradient-solid);
+
+    &__wrapper {
+      position: static;
+      display: flex;
+      width: 1200px;
+      height: auto;
+      justify-content: space-between;
+      background: transparent;
+      transform: translateX(0);
+
+      & > a.nav__logo {
+        display: block;
+      }
+    }
+
+    &__item {
+      animation: none;
+      transition: color 0.3s;
+
+      &:hover {
+        color: var(--secondary);
+      }
+    }
+
+    &__item::before {
+      display: none;
+    }
+
+    &__logo {
+      margin-right: 5em;
+      font-family: "Rock Salt", cursive;
+
+      & + div.nav__item-wrapper {
+        display: none;
+      }
+    }
+
+    &__burger {
+      display: none;
+    }
   }
 }
 </style>
