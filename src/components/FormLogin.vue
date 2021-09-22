@@ -40,7 +40,7 @@
       </button>
     </form>
     <div class="extras">
-      <slot name="two-links" />
+      <slot name="login-form-btns" />
     </div>
   </div>
 </template>

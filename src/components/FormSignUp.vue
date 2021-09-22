@@ -5,7 +5,7 @@
     </h1>
     <form
       class="form"
-      @submit.prevent
+      @submit.prevent="signup"
     >
       <div class="form__box">
         <label
@@ -52,7 +52,7 @@
       </button>
     </form>
     <div class="extras extras--center">
-      <slot name="link" />
+      <slot name="back-btn" />
     </div>
   </div>
 </template>
