@@ -5,21 +5,27 @@
       mode="out-in"
     >
       <component :is="selectedComponent">
-        <a
-          slot="two-links"
-          class="link extras__link"
+        <button
+          slot="login-form-btns"
+          class="btn extras__btn"
           @click="selectedComponent = 'form-password-reset'"
-        >Forgot Password?</a>
-        <a
-          slot="two-links"
-          class="link extras__link"
+        >
+          Forgot Password?
+        </button>
+        <button
+          slot="login-form-btns"
+          class="btn extras__btn"
           @click="selectedComponent = 'form-sign-up'"
-        >Sign Up</a>
-        <a
-          slot="link"
-          class="link extras__link"
+        >
+          Sign Up
+        </button>
+        <button
+          slot="back-btn"
+          class="btn extras__btn"
           @click="selectedComponent = 'form-login'"
-        >Back to Log In</a>
+        >
+          Back to Log In
+        </button>
       </component>
     </transition>
   </div>
