@@ -43,16 +43,11 @@ export default defineComponent({
   name: "NavSite",
 
   setup() {
-    const store = inject("vuex-store");
     const router = inject("vue-router");
     const navActive = ref(false);
 
     const toggleMenu = () => {
       navActive.value = !navActive.value;
-    };
-
-    const logout = () => {
-      store.dispatch("logout");
     };
 
     const routes = computed(() => {
@@ -62,7 +57,6 @@ export default defineComponent({
     return {
       navActive,
       toggleMenu,
-      logout,
       routes,
     };
   },

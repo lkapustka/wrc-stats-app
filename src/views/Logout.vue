@@ -1,9 +1,15 @@
 <script>
-import { defineComponent, inject } from "@vue/composition-api";
+import { inject } from "@vue/composition-api";
 
-export default defineComponent({
+export default {
   setup() {
     const store = inject("vuex-store");
+
+    const logout = () => {
+      store.dispatch("logout");
+    };
+
+    return logout;
   },
-});
+};
 </script>
