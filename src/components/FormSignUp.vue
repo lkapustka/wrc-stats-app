@@ -58,9 +58,9 @@
 </template>
 
 <script>
-import { inject, reactive, defineComponent } from "@vue/composition-api";
+import { inject, reactive } from "@vue/composition-api";
 
-export default defineComponent({
+export default {
   name: "FormSignUp",
 
   setup() {
@@ -84,5 +84,5 @@ export default defineComponent({
       signup,
     };
   },
-});
+}
 </script>

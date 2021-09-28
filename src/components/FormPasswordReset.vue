@@ -49,10 +49,10 @@
 </template>
 
 <script>
-import { ref, defineComponent } from "@vue/composition-api";
+import { ref } from "@vue/composition-api";
 import { auth } from "@/firebase";
 
-export default defineComponent({
+export default {
   setup() {
     const errorMassage = ref("");
     const email = ref("");
@@ -76,7 +76,7 @@ export default defineComponent({
       resetPassword,
     };
   },
-});
+}
 </script>
 
 <style lang="scss" scoped>

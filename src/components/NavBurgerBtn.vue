@@ -14,9 +14,7 @@
 </template>
 
 <script>
-import { defineComponent } from "@vue/composition-api";
-
-export default defineComponent({
+export default {
   name: "NavBurgerBtn",
   props: {
     isActive: {
@@ -25,7 +23,7 @@ export default defineComponent({
       default: false,
     }
   },
-});
+}
 </script>
 
 <style lang="scss" scoped>

@@ -35,10 +35,10 @@
 </template>
 
 <script>
-import { computed, defineComponent, inject, ref } from "@vue/composition-api";
+import { computed, inject, ref } from "@vue/composition-api";
 import NavBurgerBtn from "./NavBurgerBtn.vue";
 
-export default defineComponent({
+export default {
   components: { NavBurgerBtn },
   name: "NavSite",
 
@@ -60,7 +60,7 @@ export default defineComponent({
       routes,
     };
   },
-});
+}
 </script>
 
 <style lang="scss" scoped>

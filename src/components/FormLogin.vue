@@ -39,6 +39,12 @@
         Log In
       </button>
     </form>
+    <p
+      v-if="errorMassage !== ''"
+      class="text text--error"
+    >
+      {{ errorMassage }}
+    </p>
     <div class="extras">
       <slot name="login-form-btns" />
     </div>
@@ -46,29 +52,35 @@
 </template>
 
 <script>
-import { inject, reactive, defineComponent } from "@vue/composition-api";
+import { inject, reactive, ref } from "@vue/composition-api";
 
-export default defineComponent({
+export default {
   name: "FormLogin",
 
   setup() {
     const store = inject("vuex-store");
+    const errorMassage = ref("");
     const loginForm = reactive({
       email: "",
       password: "",
     });
 
-    const login = () => {
-      store.dispatch("login", {
-        email: loginForm.email,
-        password: loginForm.password,
-      });
+    const login = async () => {
+      try {
+        await store.dispatch("login", {
+            email: loginForm.email,
+            password: loginForm.password,
+          });
+      } catch(e) {
+        errorMassage.value = e.message;
+      }
     };
 
     return {
       loginForm,
       login,
+      errorMassage,
     };
   },
-});
+}
 </script>
