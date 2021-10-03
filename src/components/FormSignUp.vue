@@ -72,7 +72,7 @@ export default {
     });
 
     const signup = () => {
-      store.dispatch("signup", {
+      store.dispatch("signupAction", {
         email: signupForm.email,
         password: signupForm.password,
         name: signupForm.name,

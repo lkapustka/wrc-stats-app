@@ -6,7 +6,7 @@ export default {
     const store = inject("vuex-store");
 
     const logout = () => {
-      store.dispatch("logout");
+      store.dispatch("logoutAction");
     };
 
     return logout;

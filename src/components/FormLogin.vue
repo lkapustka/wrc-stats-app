@@ -65,16 +65,11 @@ export default {
       password: "",
     });
 
-    const login = async () => {
-      try {
-        await store.dispatch("login", {
-            email: loginForm.email,
-            password: loginForm.password,
-          });
-      } catch(e) {
-        errorMassage.value = e.message;
-      }
-    };
+    const login = () =>
+      store.dispatch("loginAction", {
+        email: loginForm.email,
+        password: loginForm.password,
+      });
 
     return {
       loginForm,
@@ -82,5 +77,5 @@ export default {
       errorMassage,
     };
   },
-}
+};
 </script>
