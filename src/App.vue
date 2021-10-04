@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { computed, inject, onMounted } from "@vue/composition-api";
+import { computed, inject } from "@vue/composition-api";
 import NavSite from "./components/NavSite.vue";
 import TheHeader from "./components/TheHeader.vue";
 
