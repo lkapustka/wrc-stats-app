@@ -2,64 +2,59 @@ import router from "../router/index";
 import * as firebase from "../firebase";
 
 const actions = {
-  signupAction({ dispatch, commit }, form) {
-    firebase.auth
-      .createUserWithEmailAndPassword(form.email, form.password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        // create user object in usersCollection
-        firebase.usersCollection.doc(user.uid).set({
-          name: form.name,
-        });
-
-        return user;
-      })
-      .then((user) => {
-        dispatch("fetchUser", user);
-      })
-      .catch((error) => {
-        commit("setError", error.message);
+  async signupAction({ dispatch, commit }, form) {
+    try {
+      const { user } = await firebase.auth.createUserWithEmailAndPassword(
+        form.email,
+        form.password
+      );
+      // create user object in usersCollection
+      await firebase.usersCollection.doc(user.uid).set({
+        name: form.name,
       });
+      dispatch("fetchUser", user);
+    }
+
+    catch (error) {
+      commit("setError", error.message);
+    }
   },
 
-  loginAction({ dispatch, commit }, form) {
-    firebase.auth
-      .signInWithEmailAndPassword(form.email, form.password)
-      .then((user) => {
-        dispatch("fetchUser", user);
-      })
-      .catch((error) => {
-        commit("setError", error.message);
-      });
+  async loginAction({ dispatch, commit }, form) {
+    try {
+      const { user } = await firebase.auth.signInWithEmailAndPassword(form.email, form.password);
+      dispatch("fetchUser", user);
+    }
+
+    catch (error) {
+      commit("setError", error.message);
+    }
   },
 
-  fetchUser({ commit }, user) {
-    const userData = firebase.usersCollection.doc(user.uid);
+  async fetchUser({ commit }, user) {
+    try {
+      const userProfile = await firebase.usersCollection.doc(user.uid).get();
+      commit("setUser", userProfile);
+      if (router.currentRoute.path === "/login") {
+        router.push("/");
+      }
+    }
 
-    userData
-      .get()
-      .then((data) => {
-        commit("setUser", data);
-
-        if (router.currentRoute.path === "/login") {
-          router.push("/");
-        }
-      })
-      .catch((error) => {
-        commit("setError", error.message);
-      });
+    catch (error) {
+      commit("setError", error.message);
+    }
   },
 
-  logoutAction({ commit }) {
-    firebase.auth
-      .signOut()
-      .then(() => {
-        commit("setUser", {});
-        router.push("/login");
-      })
-      .catch((error) => {
-        commit("setError", error.message);
-      });
+  async logoutAction({ commit }) {
+    try {
+      await firebase.auth.signOut();
+      commit("setUser", null);
+      router.push("/login");
+    }
+
+    catch (error) {
+      commit("setError", error.message);
+    }
   },
 };
 
