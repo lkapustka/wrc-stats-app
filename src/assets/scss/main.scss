@@ -149,9 +149,21 @@ body {
     justify-content: center;
   }
 
-  &__link {
-    margin: 1.5em;
-    font-weight: bold;
+  &__btn {
+    padding: 1.5em;
+    min-width: 0;
+    background: none;
+  }
+}
+
+.text {
+  width: 80%;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
+
+  &--error {
+    color: var(--error);
   }
 }
 

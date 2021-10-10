@@ -35,24 +35,19 @@
 </template>
 
 <script>
-import { computed, defineComponent, inject, ref } from "@vue/composition-api";
+import { computed, inject, ref } from "@vue/composition-api";
 import NavBurgerBtn from "./NavBurgerBtn.vue";
 
-export default defineComponent({
+export default {
   components: { NavBurgerBtn },
   name: "NavSite",
 
   setup() {
-    const store = inject("vuex-store");
     const router = inject("vue-router");
     const navActive = ref(false);
 
     const toggleMenu = () => {
       navActive.value = !navActive.value;
-    };
-
-    const logout = () => {
-      store.dispatch("logout");
     };
 
     const routes = computed(() => {
@@ -62,11 +57,10 @@ export default defineComponent({
     return {
       navActive,
       toggleMenu,
-      logout,
       routes,
     };
   },
-});
+}
 </script>
 
 <style lang="scss" scoped>

@@ -8,7 +8,7 @@
     </p>
     <form
       class="form"
-      @submit.prevent
+      @submit.prevent="resetPassword"
     >
       <div class="form__box">
         <label
@@ -43,16 +43,16 @@
       Success! Check your email for a reset link.
     </p>
     <div class="extras extras--center">
-      <slot name="link" />
+      <slot name="back-btn" />
     </div>
   </div>
 </template>
 
 <script>
-import { ref, defineComponent } from "@vue/composition-api";
+import { ref } from "@vue/composition-api";
 import { auth } from "@/firebase";
 
-export default defineComponent({
+export default {
   setup() {
     const errorMassage = ref("");
     const email = ref("");
@@ -76,7 +76,7 @@ export default defineComponent({
       resetPassword,
     };
   },
-});
+}
 </script>
 
 <style lang="scss" scoped>
@@ -85,17 +85,8 @@ export default defineComponent({
 }
 
 .text {
-  width: 80%;
-  font-size: 1.6rem;
-  font-weight: bold;
-  text-align: center;
-
   &--description {
     margin-bottom: 1.5em;
-  }
-
-  &--error {
-    color: var(--error);
   }
 
   &--success {

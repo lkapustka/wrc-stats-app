@@ -5,12 +5,13 @@ import store from "./store";
 import VueCompositionApi from "@vue/composition-api";
 import { provide } from "@vue/composition-api";
 import { auth } from "./firebase";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+// import { library } from "@fortawesome/fontawesome-svg-core";
+// import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+// import { faBars } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faBars);
-Vue.component("font-awesome-icon", FontAwesomeIcon);
+//library.add(faBars);
+//Vue.component("font-awesome-icon", FontAwesomeIcon);
+
 Vue.use(VueCompositionApi);
 Vue.config.productionTip = false;
 
@@ -29,6 +30,6 @@ auth.onAuthStateChanged((user) => {
   }
 
   if (user) {
-    store.dispatch("fetchUserProfile", user);
+    store.dispatch("fetchUser", user);
   }
 });

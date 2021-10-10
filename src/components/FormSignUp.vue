@@ -5,7 +5,7 @@
     </h1>
     <form
       class="form"
-      @submit.prevent
+      @submit.prevent="signup"
     >
       <div class="form__box">
         <label
@@ -52,15 +52,15 @@
       </button>
     </form>
     <div class="extras extras--center">
-      <slot name="link" />
+      <slot name="back-btn" />
     </div>
   </div>
 </template>
 
 <script>
-import { inject, reactive, defineComponent } from "@vue/composition-api";
+import { inject, reactive } from "@vue/composition-api";
 
-export default defineComponent({
+export default {
   name: "FormSignUp",
 
   setup() {
@@ -72,7 +72,7 @@ export default defineComponent({
     });
 
     const signup = () => {
-      store.dispatch("signup", {
+      store.dispatch("signupAction", {
         email: signupForm.email,
         password: signupForm.password,
         name: signupForm.name,
@@ -84,5 +84,5 @@ export default defineComponent({
       signup,
     };
   },
-});
+}
 </script>
