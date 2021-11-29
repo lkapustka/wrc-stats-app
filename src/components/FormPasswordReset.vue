@@ -64,7 +64,9 @@ export default {
       try {
         await auth.sendPasswordResetEmail(email.value);
         showSuccess.value = true;
-      } catch (err) {
+      }
+
+      catch (err) {
         errorMassage.value = err.message;
       }
     };
