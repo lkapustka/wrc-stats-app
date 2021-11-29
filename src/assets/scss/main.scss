@@ -5,7 +5,7 @@
 
 // VARIABLES =========================================
 :root {
-  --primary: #2a9d8f; //#3e1e68;
+  --primary: #31605b; //#3e1e68;
   --secondary: #e9c46a; //#f4f1fe;
   --cta-color: #e76f51;
   --bg: #3d405b; //#264653;
@@ -123,6 +123,7 @@ body {
     &:focus {
       color: white;
       font-weight: bold;
+      outline: none;
     }
   }
 
@@ -167,7 +168,7 @@ body {
   }
 }
 
-@media (max-height: 500px) {
+@media (max-height: 570px) {
   .container {
     display: block;
   }
