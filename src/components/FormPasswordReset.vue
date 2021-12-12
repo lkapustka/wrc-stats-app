@@ -8,7 +8,7 @@
     </p>
     <form
       class="form"
-      @submit.prevent="resetPassword"
+      @submit.prevent
     >
       <div class="form__box">
         <label
@@ -24,7 +24,6 @@
       </div>
       <button
         class="btn form__btn"
-        type="submit"
         @click="resetPassword"
       >
         Reset

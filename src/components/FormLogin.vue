@@ -5,7 +5,7 @@
     </h1>
     <form
       class="form"
-      @submit.prevent="login"
+      @submit.prevent
     >
       <div class="form__box">
         <label
@@ -33,7 +33,6 @@
       </div>
       <button
         class="btn form__btn"
-        type="submit"
         @click="login"
       >
         Log In

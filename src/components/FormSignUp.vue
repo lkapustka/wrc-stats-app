@@ -9,7 +9,7 @@
     >
       <form
         class="form"
-        @submit.prevent="handleSubmit(signup)"
+        @submit.prevent
       >
         <validation-provider
           v-slot="{ errors }"
@@ -76,8 +76,7 @@
         </validation-provider>
         <button
           class="btn form__btn"
-          type="submit"
-          @click="signup"
+          @click="handleSubmit(signup)"
         >
           Sign Up
         </button>
@@ -93,12 +92,7 @@
 import { inject, reactive } from "@vue/composition-api";
 import * as rules from "vee-validate/dist/rules";
 import { messages } from "vee-validate/dist/locale/en.json";
-import {
-  ValidationObserver,
-  ValidationProvider,
-  extend,
-  setInteractionMode
-} from "vee-validate";
+import { ValidationObserver, ValidationProvider, extend, setInteractionMode } from "vee-validate";
 
 export default {
   name: "FormSignUp",
@@ -146,6 +140,10 @@ export default {
 
 .text {
   position: absolute;
+  width: inherit;
   padding: 1em 2em 0;
+  align-self: center;
+  transform: translateY(1.3em);
+  //overflow: auto;
 }
 </style>
