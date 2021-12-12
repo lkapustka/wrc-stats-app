@@ -5,75 +5,37 @@
     </h1>
     <validation-observer
       v-slot="{ handleSubmit }"
-      class="form__validator"
+      class="wrapper"
     >
       <form
         class="form"
         @submit.prevent
       >
-        <validation-provider
-          v-slot="{ errors }"
-          tag="div"
-          class="form__box"
-          name="name"
-          rules="required|min:4|max:30|alpha_dash"
+        <form-input
+          :id="'name'"
+          :label="'Your name'"
+          :rules="'required|min:4|max:30|alpha_dash'"
+          :value.sync="signupForm.name"
         >
-          <label
-            class="form__label"
-            for="name"
-          >Your name</label>
-          <input
-            id="name"
-            v-model.trim="signupForm.name"
-            class="form__input"
-            type="text"
-          >
-          <p class="text text--error">
-            {{ errors[0] }}
-          </p>
-        </validation-provider>
-        <validation-provider
-          v-slot="{ errors }"
-          tag="div"
-          class="form__box"
-          name="email"
-          rules="required|min:3|max:40|email"
+          {{ signupForm.name }}
+        </form-input>
+        <form-input
+          :id="'email'"
+          :label="'E-mail'"
+          :rules="'required|min:5|max:40|email'"
+          :value.sync="signupForm.email"
         >
-          <label
-            class="form__label"
-            for="email-signup"
-          >E-mail</label>
-          <input
-            id="email-signup"
-            v-model.trim="signupForm.email"
-            class="form__input"
-            type="email"
-          >
-          <p class="text text--error">
-            {{ errors[0] }}
-          </p>
-        </validation-provider>
-        <validation-provider
-          v-slot="{ errors }"
-          tag="div"
-          class="form__box"
-          name="password"
-          rules="required|min:6|max:30"
+          {{ signupForm.email }}
+        </form-input>
+        <form-input
+          :id="'password'"
+          :label="'Password'"
+          :type="'password'"
+          :rules="'required|min:6|max:30'"
+          :value.sync="signupForm.password"
         >
-          <label
-            class="form__label"
-            for="password-signup"
-          >Password</label>
-          <input
-            id="password-signup"
-            v-model.trim="signupForm.password"
-            class="form__input"
-            type="password"
-          >
-          <p class="text text--error">
-            {{ errors[0] }}
-          </p>
-        </validation-provider>
+          {{ signupForm.password }}
+        </form-input>
         <button
           class="btn form__btn"
           @click="handleSubmit(signup)"
@@ -90,34 +52,24 @@
 
 <script>
 import { inject, reactive } from "@vue/composition-api";
-import * as rules from "vee-validate/dist/rules";
-import { messages } from "vee-validate/dist/locale/en.json";
-import { ValidationObserver, ValidationProvider, extend, setInteractionMode } from "vee-validate";
+import { ValidationObserver } from "vee-validate";
+import FormInput from "./UI Components/FormInput.vue";
 
 export default {
   name: "FormSignUp",
   components: {
     ValidationObserver,
-    ValidationProvider,
+    FormInput,
   },
 
   setup() {
-    Object.keys(rules).forEach((rule) => {
-      extend(rule, {
-        ...rules[rule],
-        message: messages[rule],
-      });
-    });
-
-    setInteractionMode("eager");
-
-    const store = inject("vuex-store");
     const signupForm = reactive({
       name: "",
       email: "",
       password: "",
     });
 
+    const store = inject("vuex-store");
     const signup = () => {
       store.dispatch("signupAction", {
         name: signupForm.name,
@@ -133,17 +85,3 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
-.form__validator {
-  width: 100vw;
-}
-
-.text {
-  position: absolute;
-  width: inherit;
-  padding: 1em 2em 0;
-  align-self: center;
-  transform: translateY(1.3em);
-  //overflow: auto;
-}
-</style>
