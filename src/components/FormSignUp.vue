@@ -13,26 +13,26 @@
       >
         <form-input
           :id="'name'"
+          v-model="signupForm.name"
           :label="'Your name'"
           :rules="'required|min:4|max:30|alpha_dash'"
-          :value.sync="signupForm.name"
         >
           {{ signupForm.name }}
         </form-input>
         <form-input
           :id="'email'"
+          v-model="signupForm.email"
           :label="'E-mail'"
           :rules="'required|min:5|max:40|email'"
-          :value.sync="signupForm.email"
         >
           {{ signupForm.email }}
         </form-input>
         <form-input
           :id="'password'"
+          v-model="signupForm.password"
           :label="'Password'"
           :type="'password'"
           :rules="'required|min:6|max:30'"
-          :value.sync="signupForm.password"
         >
           {{ signupForm.password }}
         </form-input>

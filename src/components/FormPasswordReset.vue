@@ -6,35 +6,31 @@
     <p class="text text--description">
       Enter your email adress below to reset password
     </p>
-    <form
-      class="form"
-      @submit.prevent
+    <validation-observer
+      v-slot="{ handleSubmit }"
+      class="wrapper"
     >
-      <div class="form__box">
-        <label
-          class="form__label"
-          for="email-reset"
-        >E-mail</label>
-        <input
-          id="email-reset"
-          v-model.trim="email"
-          class="form__input"
-          type="email"
-        >
-      </div>
-      <button
-        class="btn form__btn"
-        @click="resetPassword"
+      <form
+        class="form"
+        @submit.prevent
       >
-        Reset
-      </button>
-    </form>
-    <p
-      v-if="errorMassage !== ''"
-      class="text text--error"
-    >
-      {{ errorMassage }}
-    </p>
+        <form-input
+          :id="'email'"
+          v-model="email"
+          :label="'E-mail'"
+          :rules="'required|min:5|max:40|email'"
+          :error="errorMassage"
+        >
+          {{ email }}
+        </form-input>
+        <button
+          class="btn form__btn"
+          @click="handleSubmit(resetPassword)"
+        >
+          Reset
+        </button>
+      </form>
+    </validation-observer>
     <p
       v-if="showSuccess"
       class="text text--success"
@@ -50,8 +46,13 @@
 <script>
 import { ref } from "@vue/composition-api";
 import { auth } from "@/firebase";
+import { ValidationObserver } from "vee-validate";
+import FormInput from "./UI Components/FormInput.vue";
 
 export default {
+  name: "FormPasswordReset",
+  components: { ValidationObserver, FormInput },
+
   setup() {
     const errorMassage = ref("");
     const email = ref("");

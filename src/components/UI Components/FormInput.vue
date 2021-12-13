@@ -14,12 +14,13 @@
         :id="id"
         v-model.trim="internalValue"
         :type="type"
+        :error="error"
         class="form__input"
         @input="onChange"
       >
     </div>
     <p class="text text--error">
-      {{ errors[0] }}
+      {{ errors[0] || error }}
     </p>
   </validation-provider>
 </template>
@@ -38,7 +39,6 @@ export default {
       type: String,
       required: true,
       default: "required",
-    },
 
     id: {
       type: String,
@@ -50,19 +50,27 @@ export default {
       required: true,
     },
 
-    type: {
+    typee: {
       type: String,
-      required: false,
       default: "text",
+      required: false,
     },
 
     value: {
       type: String,
       required: true,
     },
+
+    error: {
+      type: String,
+      default: "",
+      required: false,
+    }
+  },
   },
 
   setup(props, { emit }) {
+
     Object.keys(rules).forEach((rule) => {
       extend(rule, {
         ...rules[rule],
@@ -74,7 +82,7 @@ export default {
 
     const internalValue = ref("");
     const onChange = () => {
-      emit("update:value", internalValue.value);
+      emit("input", internalValue.value);
     };
 
     return {
