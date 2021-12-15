@@ -4,7 +4,7 @@
       WRC Stats
     </h1>
     <p class="header__text">
-      An app for WRC players who race with friends on a split screen and want to record their
+      The App for WRC players who race with friends on a split screen and want to record their
       results.
     </p>
   </header>

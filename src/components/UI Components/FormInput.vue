@@ -39,6 +39,7 @@ export default {
       type: String,
       required: true,
       default: "required",
+    },
 
     id: {
       type: String,
@@ -50,7 +51,7 @@ export default {
       required: true,
     },
 
-    typee: {
+    type: {
       type: String,
       default: "text",
       required: false,
@@ -66,7 +67,6 @@ export default {
       default: "",
       required: false,
     }
-  },
   },
 
   setup(props, { emit }) {

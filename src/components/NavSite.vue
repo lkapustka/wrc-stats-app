@@ -36,7 +36,7 @@
 
 <script>
 import { computed, inject, ref } from "@vue/composition-api";
-import NavBurgerBtn from "./NavBurgerBtn.vue";
+import NavBurgerBtn from "./UI Components/NavBurgerBtn.vue";
 
 export default {
   name: "NavSite",
