@@ -36,20 +36,19 @@
 
 <script>
 import { computed, inject, ref } from "@vue/composition-api";
-import NavBurgerBtn from "./NavBurgerBtn.vue";
+import NavBurgerBtn from "./UI Components/NavBurgerBtn.vue";
 
 export default {
-  components: { NavBurgerBtn },
   name: "NavSite",
+  components: { NavBurgerBtn },
 
   setup() {
-    const router = inject("vue-router");
     const navActive = ref(false);
-
     const toggleMenu = () => {
       navActive.value = !navActive.value;
     };
 
+    const router = inject("vue-router");
     const routes = computed(() => {
       return router.options.routes.filter(route => route.meta.requiresAuth);
     });

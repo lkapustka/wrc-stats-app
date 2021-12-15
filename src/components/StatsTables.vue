@@ -3,11 +3,15 @@
     <table>
       <thead>
         <tr>
-          <th rowspan="3"></th>
-          <th colspan="3">{{ rallyName }}</th>
+          <th rowspan="3" />
+          <th colspan="3">
+            {{ rallyName }}
+          </th>
         </tr>
         <tr>
-          <th colspan="3">{{ id }}</th>
+          <th colspan="3">
+            {{ id }}
+          </th>
         </tr>
         <tr>
           <th>{{ playerOne }}</th>
@@ -16,50 +20,53 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(row, i) in rows" :key="i">
+        <tr
+          v-for="(row, i) in rows"
+          :key="i"
+        >
           <th>{{ i + 1 }}</th>
-          <th></th>
-          <th></th>
-          <th></th>
+          <th />
+          <th />
+          <th />
         </tr>
       </tbody>
     </table>
 
     <table>
       <tr>
-        <th></th>
+        <th />
         <th>{{ playerOne }}</th>
         <th>{{ playerTwo }}</th>
       </tr>
       <tr>
         <th>BEST</th>
-        <td></td>
-        <td></td>
+        <td />
+        <td />
       </tr>
       <tr>
         <th>WORST</th>
-        <td></td>
-        <td></td>
+        <td />
+        <td />
       </tr>
       <tr>
         <th>TOTAL</th>
-        <td></td>
-        <td></td>
+        <td />
+        <td />
       </tr>
       <tr>
         <th>AVERAGE</th>
-        <td></td>
-        <td></td>
+        <td />
+        <td />
       </tr>
       <tr>
         <th>DNF</th>
-        <td></td>
-        <td></td>
+        <td />
+        <td />
       </tr>
       <tr>
         <th>WINS</th>
-        <td></td>
-        <td></td>
+        <td />
+        <td />
       </tr>
     </table>
   </div>

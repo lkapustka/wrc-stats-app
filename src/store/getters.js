@@ -9,6 +9,10 @@ const getters = {
   isUserAuth(state) {
     return !!state.user;
   },
+
+  getError(state) {
+    return state.error;
+  }
 };
 
 export default getters;

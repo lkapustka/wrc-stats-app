@@ -3,54 +3,47 @@
     <h1 class="heading">
       Get Started
     </h1>
-    <form
-      class="form"
-      @submit.prevent="signup"
+    <validation-observer
+      v-slot="{ handleSubmit }"
+      class="wrapper"
     >
-      <div class="form__box">
-        <label
-          class="form__label"
-          for="name"
-        >Your name</label>
-        <input
-          id="name"
-          v-model.trim="signupForm.name"
-          class="form__input"
-          type="text"
-        >
-      </div>
-      <div class="form__box">
-        <label
-          class="form__label"
-          for="email-signup"
-        >E-mail</label>
-        <input
-          id="email-signup"
-          v-model.trim="signupForm.email"
-          class="form__input"
-          type="email"
-        >
-      </div>
-      <div class="form__box">
-        <label
-          class="form__label"
-          for="password-signup"
-        >Password</label>
-        <input
-          id="password-signup"
-          v-model.trim="signupForm.password"
-          class="form__input"
-          type="password"
-        >
-      </div>
-      <button
-        class="btn form__btn"
-        type="submit"
-        @click="signup"
+      <form
+        class="form"
+        @submit.prevent
       >
-        Sign Up
-      </button>
-    </form>
+        <form-input
+          :id="'name'"
+          v-model="signupForm.name"
+          :label="'Your name'"
+          :rules="'required|min:4|max:30|alpha_dash'"
+        >
+          {{ signupForm.name }}
+        </form-input>
+        <form-input
+          :id="'email'"
+          v-model="signupForm.email"
+          :label="'E-mail'"
+          :rules="'required|min:5|max:40|email'"
+        >
+          {{ signupForm.email }}
+        </form-input>
+        <form-input
+          :id="'password'"
+          v-model="signupForm.password"
+          :label="'Password'"
+          :type="'password'"
+          :rules="'required|min:6|max:30'"
+        >
+          {{ signupForm.password }}
+        </form-input>
+        <button
+          class="btn form__btn"
+          @click="handleSubmit(signup)"
+        >
+          Sign Up
+        </button>
+      </form>
+    </validation-observer>
     <div class="extras extras--center">
       <slot name="back-btn" />
     </div>
@@ -59,23 +52,29 @@
 
 <script>
 import { inject, reactive } from "@vue/composition-api";
+import { ValidationObserver } from "vee-validate";
+import FormInput from "./UI Components/FormInput.vue";
 
 export default {
   name: "FormSignUp",
+  components: {
+    ValidationObserver,
+    FormInput,
+  },
 
   setup() {
-    const store = inject("vuex-store");
     const signupForm = reactive({
       name: "",
       email: "",
       password: "",
     });
 
+    const store = inject("vuex-store");
     const signup = () => {
       store.dispatch("signupAction", {
+        name: signupForm.name,
         email: signupForm.email,
         password: signupForm.password,
-        name: signupForm.name,
       });
     };
 
@@ -84,5 +83,5 @@ export default {
       signup,
     };
   },
-}
+};
 </script>

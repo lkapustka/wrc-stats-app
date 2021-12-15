@@ -1,0 +1,17 @@
+:root {
+  --primary: #31605b; //#3e1e68;
+  --secondary: #e9c46a; //#f4f1fe;
+  --cta-color: #e76f51;
+  --bg: #3d405b; //#264653;
+  --error: #ef5777;
+  --success: #1abc9c;
+  --shadow: #34495e;
+  --text-color: white;
+
+  --gradient-color-first: rgba(128, 255, 219, 0.7);
+  --gradient-color-second: rgba(116, 0, 184, 0.7);
+
+  --gradient: linear-gradient(45deg, rgba(128, 255, 219, 0.7), rgba(116, 0, 184, 0.7));
+  --gradient-solid: linear-gradient(45deg, rgb(128, 255, 219), rgb(116, 0, 184));
+  --gradient-dark: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(77, 201, 185, 0.7));
+}

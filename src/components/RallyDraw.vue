@@ -1,7 +1,14 @@
 <template>
   <div class="container">
-    <button class="button" @click="showRandomRally">Draw Rally</button>
-    <div class="input">{{ randomRally }}</div>
+    <button
+      class="button"
+      @click="showRandomRally"
+    >
+      Draw Rally
+    </button>
+    <div class="input">
+      {{ randomRally }}
+    </div>
   </div>
 </template>
 
