@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <button
-      class="button"
+      class="btn"
       @click="showRandomRally"
     >
       Draw Rally
@@ -13,12 +13,12 @@
 </template>
 
 <script>
-import { defineComponent, inject, ref } from "@vue/composition-api";
+import { inject, ref } from "@vue/composition-api";
 
-export default defineComponent({
+export default {
+  name: "RallyDraw",
+
   setup() {
-    const store = inject("vuex-store");
-
     const getRandom = (min, max) => {
       return Math.round(Math.random() * (max - min) + min);
     };
@@ -27,53 +27,50 @@ export default defineComponent({
       return getRandom(1, store.state.rallies[0].rallies.length);
     };
 
+    const timeOfDay = ["Dawn", "Midday", "Evening", "Night"];
     const drawRandomTime = () => {
-      return getRandom(1, store.state.timeOfDay.length);
+      return getRandom(1, timeOfDay.length);
     };
 
+    const store = inject("vuex-store");
+    const randomRally = ref("Click the button above to get started");
     const showRandomRally = () => {
+
+      const time = timeOfDay[drawRandomTime() - 1];
       const rally = store.getters.getRally(drawRandomRally());
-      const time = store.getters.getTimeOfDay(drawRandomTime());
       randomRally.value = `${rally.country} - ${rally.name}  (${time})`;
     };
 
-    const randomRally = ref("");
 
     return {
       showRandomRally,
       randomRally,
     };
   },
-});
+};
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/main.scss";
-
 .container {
-  display: grid;
-  grid-template-rows: repeat(2, 50px);
-  grid-template-columns: repeat(10, 1fr);
-  column-gap: 10px;
-  row-gap: 50px;
+  display: flex;
+  width: 80%;
+  margin: 2em auto;
+  justify-content: center;
+}
 
-  .button {
-    grid-row: 2;
-    grid-column: 4;
-  }
+.btn {
+  background-color: var(--gradient-color-second);
+}
 
-  .input {
-    background: var(--secondary);
-    border-radius: 3px;
-    text-align: center;
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    min-width: 400px;
-    grid-row: 2;
-    grid-column: 5 / 8;
-    color: var(--primary);
-    font-weight: bold;
-    line-height: 2.1rem;
-  }
+.input {
+  width: 100%;
+  margin-top: 1em;
+  padding: 0.5em 1em;
+  background-color: var(--gradient-color-first);
+  border-radius: 3px;
+  text-align: center;
+  color: var(--gradient-color-second);
+  font-size: 1.6rem;
+  font-weight: bold;
 }
 </style>
