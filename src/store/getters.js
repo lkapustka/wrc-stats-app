@@ -2,8 +2,8 @@ import _ from "lodash";
 
 const getters = {
   getRally: (state) => (id) => {
-    const index = _.findIndex(state.rallies[0].rallies, ["id", id]);
-    return state.rallies[0].rallies[index];
+    const index = _.findIndex(state.rallies, ["id", id]);
+    return state.rallies[index];
   },
 
   isUserAuth(state) {

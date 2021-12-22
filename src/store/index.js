@@ -10,7 +10,8 @@ const initialState = () => {
   return {
     user: null,
     error: null,
-    rallies: require("../data/rallies.json")
+    activeRally: null,
+    rallies: require("../data/wrc9.json")
   };
 };
 
