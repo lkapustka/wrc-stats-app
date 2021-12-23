@@ -9,7 +9,15 @@ const mutations = {
 
   setActiveRally(state, value) {
     state.activeRally = value;
-  }
+  },
+
+  setRalliesHistory(state, value) {
+    if (value === null) return;
+    if (state.ralliesHistory.length === 10) {
+      state.ralliesHistory.shift();
+    }
+    state.ralliesHistory.push(value);
+  },
 };
 
 export default mutations;

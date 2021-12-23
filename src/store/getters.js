@@ -6,6 +6,14 @@ const getters = {
     return state.rallies[index];
   },
 
+  getActiveRally(state) {
+    return state.activeRally;
+  },
+
+  getRalliesHistory(state) {
+    return state.ralliesHistory;
+  },
+
   isUserAuth(state) {
     return !!state.user;
   },
