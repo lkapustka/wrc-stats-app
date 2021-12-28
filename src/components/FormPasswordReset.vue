@@ -92,7 +92,7 @@ export default {
   }
 
   &--success {
-    color: var(--success);
+    color: var(--success-color);
   }
 }
 </style>

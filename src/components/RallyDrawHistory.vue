@@ -37,10 +37,10 @@ export default {
   width: 100%;
   margin-top: 1em;
   padding: 0.5em 1em;
-  background-color: var(--gradient-color-second);
+  background-color: var(--primary-color);
   border-radius: 3px;
   text-align: center;
-  color: var(--gradient-color-first);
+  color: var(--text-color);
   font-size: 1.6rem;
   font-weight: bold;
 }

@@ -79,7 +79,7 @@ export default {
     background: var(--gradient-solid);
     transform: translateX(100%);
     transition: transform 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
-    z-index: 100;
+    z-index: var(--z-index-menu);
 
     & > a.nav__logo {
       display: none;
@@ -174,7 +174,7 @@ export default {
       transition: color 0.3s;
 
       &:hover {
-        color: var(--secondary);
+        color: var(--secondary-color);
       }
     }
 

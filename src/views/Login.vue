@@ -61,12 +61,17 @@ export default {
   left: 0;
   width: 100%;
   height: 100vh;
-  @include heroImages(linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), "../../public/img/bg-login-small.jpg");
+
+  @include heroImages(
+    var(--login-bg-gradient),
+    var(--login-bg-small));
 }
 
 @media (min-width: 992px) {
   .bg {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../../public/img/bg-login-xl.jpg");
+    background-image:
+      var(--login-bg-gradient),
+      var(--login-bg-big);
   }
 }
 </style>

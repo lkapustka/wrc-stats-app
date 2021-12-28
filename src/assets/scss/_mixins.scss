@@ -1,6 +1,7 @@
-@mixin heroImages($gradient, $bgImg) {
-  background-image: $gradient, url($bgImg);
-  background-size: cover;
-  background-position: center;
-  background-attachment: scroll;
+@mixin heroImages($gradient, $bg-img) {
+  background:
+      $gradient, $bg-img
+      center / cover
+      no-repeat
+      scroll;
 }

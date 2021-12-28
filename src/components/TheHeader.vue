@@ -27,17 +27,17 @@ export default {
   align-items: center;
   color: var(--text-color);
   text-align: center;
-  @include heroImages(var(--gradient), "../../public/img/header-small.jpg");
+
+  @include heroImages(
+    var(--gradient),
+    var(--header-bg-small));
 
   &__heading {
-    font-family: "Rock Salt", cursive;
-    font-size: 4.8rem;
-    font-weight: bold;
+    font: bold 4.8rem "Rock Salt", cursive;
   }
 
   &__text {
     font-size: 1.4rem;
-    font-weight: bold;
   }
 }
 
@@ -55,7 +55,7 @@ export default {
 
 @media (min-width: 992px) {
   .header {
-    background-image: var(--gradient), url("../../public/img/header-big.jpg");
+    background-image: var(--gradient), var(--header-bg-big);
 
     &__heading {
       font-size: 8rem;

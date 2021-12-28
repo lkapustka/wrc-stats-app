@@ -39,11 +39,11 @@ export default {
   min-width: 0;
 
   &--accept {
-    background-color: var(--success);
+    background-color: var(--success-color);
   }
 
   &--discard {
-    background-color: var(--error);
+    background-color: var(--error-color);
   }
 }
 

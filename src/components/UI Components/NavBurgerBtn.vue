@@ -53,7 +53,7 @@ $hamburger-active-hover-filter: $hamburger-hover-filter !default;
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 1000;
+  z-index: var(--z-index-btn-menu);
   // =================================================
 
   padding: $hamburger-padding-y $hamburger-padding-x;

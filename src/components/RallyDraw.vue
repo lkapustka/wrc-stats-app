@@ -20,16 +20,18 @@
     <div class="input">
       {{ randomRally }}
     </div>
+    <rally-draw-history />
   </div>
 </template>
 
 <script>
 import { inject, ref } from "@vue/composition-api";
 import ButtonsCTA from "./UI Components/ButtonsCTA.vue";
+import RallyDrawHistory from './RallyDrawHistory.vue';
 
 export default {
   name: "RallyDraw",
-  components: { ButtonsCTA },
+  components: { ButtonsCTA, RallyDrawHistory },
 
   setup() {
     const isActive = ref(true);
@@ -62,6 +64,7 @@ export default {
         const time = drawRandomTime();
         randomRally.value = `${rally.country} - ${rally.name}  (${time})`;
         store.commit("setActiveRally", rally);
+        store.commit("setRalliesHistory", rally);
       }
 
       catch (error) {
@@ -105,18 +108,14 @@ export default {
   justify-content: center;
 }
 
-.btn {
-  background-color: var(--gradient-color-second);
-}
-
 .input {
   width: 100%;
   margin-top: 1em;
   padding: 0.5em 1em;
-  background-color: var(--gradient-color-first);
+  background-color: var(--primary-color);
   border-radius: 3px;
   text-align: center;
-  color: var(--gradient-color-second);
+  color: var(--text-color);
   font-size: 1.6rem;
   font-weight: bold;
 }
