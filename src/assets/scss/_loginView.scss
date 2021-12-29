@@ -43,14 +43,14 @@
     font: bold 2rem "Source Sans Pro", sans-serif;
 
     &:focus {
-      color: white;
+      color: #ffffff;
       font-weight: bold;
       outline: none;
     }
   }
 
   &__label {
-    color: white;
+    color: #ffffff;
     font-weight: bold;
     opacity: 0.7;
     transition: opacity 0.4s ease;
@@ -58,15 +58,20 @@
 
   &__btn {
     margin: 2em 0;
+    background-color: var(--login-cta-color);
   }
 }
 
 .extras {
   display: flex;
-  width: calc(80% + 1.5em);
-  max-width: calc(500px + 1.5em);
   margin-top: 2em;
   justify-content: space-between;
+
+  --form-width: 80%;
+  --form-max-width: 500px;
+  --offset: 1.5em;
+  width: calc( var(--form-width) + var(--offset) );
+  max-width: calc( var(--form-max-width) + var(--offset) );
 
   &--center {
     justify-content: center;

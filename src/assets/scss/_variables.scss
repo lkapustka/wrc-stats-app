@@ -1,7 +1,6 @@
 :root {
   --primary-color: #7400b8b3;
   --secondary-color: #80ffdbb3;
-  --cta-color: #31605b;
   --error-color: #ef5777;
   --success-color: #1abc9c;
   --text-color: #ffffff;
@@ -13,11 +12,11 @@
   --z-index-menu: 100;
   --z-index-error: -5;
 
-  --login-btn-color: #31605bff;
+  --login-cta-color: #31605bff;
   --login-bg-gradient: linear-gradient(#00000099, #00000099);
   --login-bg-small: url("../public/img/login-bg-small.jpg");
   --login-bg-big: url("../public/img/login-bg-big.jpg");
 
   --header-bg-small: url("../public/img/header-small.jpg");
-  --header-bg-big: url("../public/img/header-small.jpg");
+  --header-bg-big: url("../public/img/header-big.jpg");
 }
