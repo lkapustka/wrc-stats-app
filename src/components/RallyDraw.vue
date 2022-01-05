@@ -26,6 +26,7 @@
 
 <script>
 import { inject, ref } from "@vue/composition-api";
+import { useDebounceFn } from "@vueuse/core";
 import ButtonsCTA from "./UI Components/ButtonsCTA.vue";
 import RallyDrawHistory from './RallyDrawHistory.vue';
 
@@ -56,33 +57,22 @@ export default {
     };
 
     const randomRally = ref("Click the button above to get started");
-    const showRandomRally = () => {
+    const showRandomRally = useDebounceFn(() => {
 
-      try {
-        toggleButtons();
-        const rally = drawRandomRally();
-        const time = drawRandomTime();
-        randomRally.value = `${rally.country} - ${rally.name}  (${time})`;
-        store.commit("setActiveRally", rally);
-        store.commit("setRalliesHistory", rally);
-      }
+      toggleButtons();
+      const rally = drawRandomRally();
+      const time = drawRandomTime();
+      randomRally.value = `${rally.country} - ${rally.name}  (${time})`;
 
-      catch (error) {
-        store.commit("setError", error);
-      }
-    }
+      store.commit("setActiveRally", rally);
+      store.commit("setRalliesHistory", rally);
+
+    }, 200);
 
     const discardRally = () => {
-
-      try {
-        toggleButtons();
-        randomRally.value = "Click the button above to get started";
-        store.commit("setActiveRally", null);
-      }
-
-      catch(error) {
-        store.commit("setError", error);
-      }
+      toggleButtons();
+      randomRally.value = "Click the button above to get started";
+      store.commit("setActiveRally", null);
     }
 
     const acceptRally = () => {
@@ -112,10 +102,10 @@ export default {
   width: 100%;
   margin-top: 1em;
   padding: 0.5em 1em;
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   border-radius: 3px;
   text-align: center;
-  color: var(--text-color);
+  color: var(--primary-color);
   font-size: 1.6rem;
   font-weight: bold;
 }
