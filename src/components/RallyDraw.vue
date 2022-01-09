@@ -45,7 +45,7 @@ export default {
     };
 
     const timeOfDay = ["Dawn", "Midday", "Evening", "Night"];
-    const drawRandomTime = () => {
+    const drawRandomTimeofDay = () => {
       const index = getRandom(1, timeOfDay.length);
       return timeOfDay[index - 1];
     };
@@ -60,9 +60,11 @@ export default {
     const showRandomRally = useDebounceFn(() => {
 
       toggleButtons();
+
       const rally = drawRandomRally();
-      const time = drawRandomTime();
-      randomRally.value = `${rally.country} - ${rally.name}  (${time})`;
+      rally.date = new Date().toLocaleString("en-GB");
+      const timeofDay = drawRandomTimeofDay();
+      randomRally.value = `${rally.country} - ${rally.name}  (${timeofDay})`;
 
       store.commit("setActiveRally", rally);
       store.commit("setRalliesHistory", rally);
