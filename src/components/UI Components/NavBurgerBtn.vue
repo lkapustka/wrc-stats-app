@@ -1,6 +1,6 @@
 <template>
   <button
-    :class="[{ 'is-active': isActive }, 'hamburger hamburger--elastic']"
+    :class="[{ 'is-active': isActive, 'hamburger--dark': isDark }, 'hamburger hamburger--elastic']"
     type="button"
     aria-label="Menu"
     aria-controls="navigation"
@@ -21,9 +21,14 @@ export default {
       type: Boolean,
       required: true,
       default: false,
+    },
+
+    isDark: {
+      type: Boolean,
+      required: true,
     }
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -34,6 +39,7 @@ $hamburger-layer-width: 40px !default;
 $hamburger-layer-height: 4px !default;
 $hamburger-layer-spacing: 6px !default;
 $hamburger-layer-color: #fff !default;
+$hamburger-layer-dark-color: #000;
 $hamburger-layer-border-radius: 4px !default;
 $hamburger-hover-opacity: 1 !default;
 $hamburger-active-layer-color: $hamburger-layer-color !default;
@@ -172,6 +178,16 @@ $hamburger-active-hover-filter: $hamburger-hover-filter !default;
         transform: translate3d(0, $y-offset * -2, 0) rotate(-270deg);
         transition-delay: 0.075s;
       }
+    }
+  }
+}
+
+.hamburger--dark {
+  .hamburger-inner {
+    &,
+    &::before,
+    &::after {
+      background-color: $hamburger-layer-dark-color;
     }
   }
 }
