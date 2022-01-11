@@ -29,6 +29,7 @@
     <nav-burger-btn
       class="nav__burger"
       :is-active="navActive"
+      :is-dark="isDark"
       @click="toggleMenu"
     />
   </nav>
@@ -37,6 +38,7 @@
 <script>
 import { computed, inject, ref } from "@vue/composition-api";
 import NavBurgerBtn from "./UI Components/NavBurgerBtn.vue";
+import useDark from "../composables/useDark";
 
 export default {
   name: "NavSite",
@@ -53,10 +55,13 @@ export default {
       return router.options.routes.filter(route => route.meta.requiresAuth);
     });
 
+    const { isDark } = useDark();
+
     return {
       navActive,
       toggleMenu,
       routes,
+      isDark,
     };
   },
 }

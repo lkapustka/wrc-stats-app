@@ -55,13 +55,6 @@ $hamburger-active-hover-filter: $hamburger-hover-filter !default;
 // Hamburger
 // ==================================================
 .hamburger {
-  //================Custom settings =================
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: var(--z-index-btn-menu);
-  // =================================================
-
   padding: $hamburger-padding-y $hamburger-padding-x;
   display: inline-block;
   cursor: pointer;
@@ -182,12 +175,19 @@ $hamburger-active-hover-filter: $hamburger-hover-filter !default;
   }
 }
 
-.hamburger--dark {
-  .hamburger-inner {
-    &,
-    &::before,
-    &::after {
-      background-color: $hamburger-layer-dark-color;
+.hamburger {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: var(--z-index-btn-menu);
+
+  &--dark {
+    .hamburger-inner {
+      &,
+      &::before,
+      &::after {
+        background-color: $hamburger-layer-dark-color;
+      }
     }
   }
 }
