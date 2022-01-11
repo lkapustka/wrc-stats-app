@@ -61,10 +61,13 @@ export default {
 </script>
 <style lang="scss" scoped>
 .table {
+  --shadow-width: 40px;
+  box-shadow: 0 0 20px #00000026;
+
   display: flex;
-  width: 100%;
+  width: calc(100% - var(--shadow-width));
   max-width: min-content;
-  margin: 2em 0;
+  margin: 2em auto;
   border-collapse: collapse;
   border-spacing: 0;
   font-size: 1.4rem;
@@ -114,12 +117,6 @@ export default {
   &__data {
     border-left: 0;
     color: #000000;
-  }
-}
-
-@media (min-width: 570px) {
-  .table {
-    box-shadow: 0 0 20px #00000026;
   }
 }
 
