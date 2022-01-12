@@ -12,7 +12,6 @@ const mutations = {
   },
 
   setRalliesHistory(state, value) {
-    if (value === null) return;
     if (state.ralliesHistory.length === 10) {
       state.ralliesHistory.shift();
     }

@@ -1,9 +1,10 @@
-import _ from "lodash";
-
 const getters = {
   getRally: (state) => (id) => {
-    const index = _.findIndex(state.rallies, ["id", id]);
-    return state.rallies[index];
+    return state.rallies.find(rally => rally.id === id);
+  },
+
+  ralliesCount(state) {
+    return state.rallies.length;
   },
 
   getActiveRally(state) {
