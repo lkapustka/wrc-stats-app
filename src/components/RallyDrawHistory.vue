@@ -1,47 +1,26 @@
 <template>
-  <div
-    class="container"
-  >
-    {{ showHistory }}
-  </div>
+  <vue-table
+    :heading="'Last 10 rallies'"
+    :headers="['country', 'name', 'time', 'date', 'status']"
+    :items="getHistory"
+  />
 </template>
 
 <script>
-import { computed, inject } from '@vue/composition-api';
+import { computed, inject } from "@vue/composition-api";
+import VueTable from "./VueTable.vue";
 
 export default {
-    name: "RallyDrawHistory",
-    props: {
-        rally: {
-            type: String,
-            require: true,
-            default: null,
-        },
-    },
+  name: "RallyDrawHistory",
+  components: { VueTable },
 
-    setup() {
-        const store = inject("vuex-store");
-        const showHistory = computed(() => {
-            return store.getters.getRalliesHistory;
-        });
+  setup() {
+    const store = inject("vuex-store");
+    const getHistory = computed(() => {
+      return store.getters.getRalliesHistory || [];
+    });
 
-        return {
-            showHistory,
-        }
-    },
-}
+    return { getHistory };
+  },
+};
 </script>
-
-<style lang="scss" scoped>
-.container {
-  width: 100%;
-  margin-top: 1em;
-  padding: 0.5em 1em;
-  background-color: var(--primary-color);
-  border-radius: 3px;
-  text-align: center;
-  color: var(--text-color);
-  font-size: 1.6rem;
-  font-weight: bold;
-}
-</style>

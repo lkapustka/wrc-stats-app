@@ -11,6 +11,7 @@ const initialState = () => {
     user: null,
     error: null,
     activeRally: null,
+    ralliesHistory: [],
     rallies: require("../data/wrc9.json")
   };
 };
