@@ -10,7 +10,7 @@ export default function useDark() {
 
     useEventListener(window, "scroll", useDebounceFn(() => {
         isDark.value = window.scrollY >= headerHeightInPx.value ? true : false
-    }), 100);
+    }, 100));
 
     return { isDark };
 }
