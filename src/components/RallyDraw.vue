@@ -18,17 +18,18 @@
       />
     </transition>
     <div class="input">
-      {{ randomRally }}
+      {{ displayRally }}
     </div>
     <rally-draw-history />
   </div>
 </template>
 
 <script>
-import { inject, ref, set } from "@vue/composition-api";
+import { inject, ref } from "@vue/composition-api";
 import { useDebounceFn } from "@vueuse/core";
+import useDrawRally, { Status } from "../composables/useDrawRally.js"
 import RallyDrawButtons from "./UI Components/RallyDrawButtons.vue";
-import RallyDrawHistory from './RallyDrawHistory.vue';
+import RallyDrawHistory from "./RallyDrawHistory.vue";
 
 export default {
   name: "RallyDraw",
@@ -40,36 +41,13 @@ export default {
       isActive.value = !isActive.value;
     }
 
-    const getRandom = (min, max) => {
-      return Math.round(Math.random() * (max - min) + min);
-    };
-
-    const timeOfDay = ["Dawn", "Midday", "Evening", "Night"];
-    const drawRandomTimeOfDay = () => {
-      const index = getRandom(0, timeOfDay.length - 1);
-      return timeOfDay[index];
-    };
-
+    const displayRally = ref("Click the button above to get started");
     const store = inject("vuex-store");
-    const drawRandomRally = () => {
-      const id = getRandom(1, store.getters.ralliesCount);
-      return store.getters.getRally(id);
-    };
 
-    const createRally = () => {
-      const rally = drawRandomRally();
-      set(rally, "time",  drawRandomTimeOfDay());
-      set(rally, "date", new Date().toLocaleString("en-GB"));
-      set(rally, "status", "Active");
-      return rally;
-    }
-
-    const randomRally = ref("Click the button above to get started");
     const showRandomRally = useDebounceFn(() => {
       toggleButtons();
-      const rally = createRally();
-      randomRally.value = `${rally.country} - ${rally.name}  (${rally.time})`;
-
+      const { rally } = useDrawRally(store);
+      displayRally.value = `${rally.country} - ${rally.name}  (${rally.time})`;
       store.commit("setActiveRally", rally);
       store.commit("setRalliesHistory", rally);
     }, 200);
@@ -77,21 +55,20 @@ export default {
     const discardRally = () => {
       toggleButtons();
       const rally = store.getters.getActiveRally;
-      rally.status = "Discarded";
-      randomRally.value = "Click the button above to get started";
-
+      rally.status = Status.Discared;
+      displayRally.value = "Click the button above to get started";
       store.commit("setActiveRally", null);
     };
 
     const acceptRally = () => {
       toggleButtons();
       const rally = store.getters.getActiveRally;
-      rally.status = "Accepted";
+      rally.status = Status.Accepted;
     }
 
     return {
       showRandomRally,
-      randomRally,
+      displayRally,
       isActive,
       acceptRally,
       discardRally,
