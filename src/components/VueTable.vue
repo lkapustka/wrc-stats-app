@@ -48,8 +48,7 @@ export default {
       type: Array,
       required: true,
       validator: (value) => {
-        if (value.length === 0) return false;
-        return Array.isArray(value);
+        return value.length !== 0 && Array.isArray(value);
       },
     },
 

@@ -17,7 +17,7 @@ export default {
   setup() {
     const store = inject("vuex-store");
     const getHistory = computed(() => {
-      return store.getters.getRalliesHistory || [];
+      return store.getters.getRalliesHistory;
     });
 
     return { getHistory };
