@@ -6,10 +6,14 @@ export default function useDark() {
     const headerVH = ref(0.75);
     const headerHeightInPx = computed(() => headerVH.value * height.value);
 
+    const burgerPaddingTop = ref(15);
+    const burgerContent = ref(24);
+    const burgerHeightInPx = computed(() => (burgerContent.value / 2) + burgerPaddingTop.value);
+
     const isDark = ref(false);
 
     useEventListener(window, "scroll", useDebounceFn(() => {
-        isDark.value = window.scrollY >= headerHeightInPx.value ? true : false
+        isDark.value = window.scrollY + burgerHeightInPx.value >= headerHeightInPx.value ? true : false
     }, 100));
 
     return { isDark };
