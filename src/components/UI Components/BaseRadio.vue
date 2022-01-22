@@ -4,15 +4,16 @@
     @submit.prevent
   >
     <h2 class="form__heading">
-      Your WRC version
+      {{ heading }}
     </h2>
     <fieldset class="form__fieldset">
       <legend class="form__legend">
-        Please select version of WRC game you are using
+        {{ legend }}
       </legend>
       <div
-        v-for="option in options"
+        v-for="[option, isChecked] in Object.entries(options)"
         :key="option"
+        class="form__radio-box"
       >
         <label
           class="form__label"
@@ -23,6 +24,7 @@
             class="form__radio"
             type="radio"
             :name="name"
+            :checked="isChecked"
           >
           {{ option }}
         </label>
@@ -39,27 +41,41 @@
 
 <script>
 import { ref } from "@vue/composition-api";
-import { isArray } from 'lodash';
 
 export default {
   name: "BaseRadio",
   props: {
+    heading: {
+      type: String,
+      required: false,
+      default: "",
+    },
+
+    legend: {
+      type: String,
+      required: true,
+    },
+
     name: {
       type: String,
       required: true,
     },
 
     options: {
-      type: Array,
+      type: Object,
       required: true,
       validator: (value) => {
-        return isArray(value) && value.length > 1
+        return Object.keys(value).length > 1
       }
     }
   },
 
-  setup() {
-    const submit = () => { console.log("submit"); }
+  setup(props) {
+    console.log(props.options);
+    const submit = (props) => {
+
+      console.log(props.options);
+    }
 
     return { submit };
   },
@@ -68,31 +84,60 @@ export default {
 <style lang="scss" scoped>
 .form {
   &__heading {
-    padding: 1em 0;
+    margin: 1em 0;
+    color: var(--text-dark-color);
   }
 
   &__fieldset {
     display: flex;
-    padding: 1em 0;
-    border: 2px solid var(--primary-color);
+    padding: 1.5em 0;
+    border: 3px solid var(--primary-color);
+    border-radius: 4px;
     flex-direction: column;
-    gap: 0.5em;
+    gap: 1em;
   }
 
   &__legend {
-    padding: 0 0.3em;
-    font-size: 12px;
-    // color: var(--primary-color);
-    // font-weight: bold;
+    padding: 0 0.5em;
+    text-align: center;
+    color: var(--text-dark-color);
+    font-size: 1.2rem;
+    font-weight: bold;
   }
 
   &__label {
-    padding: 0 1em;
+    display: flex;
+    margin-left: 1.5em;
+    gap: 0.3em;
+    opacity: 1;
+    color: var(--text-dark-color);
+    cursor: pointer;
+  }
+
+  &__radio {
+    appearance: none;
+
+    width: 1.15em;
+    height: 1.15em;
+    align-self: center;
+    border-radius: 50%;
+    border: thin solid var(--primary-color);
+    transition: 0.2s all linear;
+    cursor: pointer;
+
+    &:checked {
+      border: 5px solid var(--primary-color);
+    }
   }
 }
 
 .btn {
   margin: 1em 0;
-  border-radius: initial;
+}
+
+@media (min-width: 768px) {
+  .form__legend {
+    font-size: 1.6rem;
+  }
 }
 </style>
