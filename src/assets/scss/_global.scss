@@ -32,3 +32,11 @@
   color: var(--text-color);
   cursor: pointer;
 }
+
+.form {
+  display: flex;
+  width: 80%;
+  max-width: 500px;
+  margin: 0 auto;
+  flex-direction: column;
+}

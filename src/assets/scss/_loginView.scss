@@ -6,12 +6,6 @@
 }
 
 .form {
-  display: flex;
-  width: 80%;
-  max-width: 500px;
-  margin: 0 auto;
-  flex-direction: column;
-
   &__box {
     display: flex;
     margin-bottom: 2em;
