@@ -1,9 +1,15 @@
 <template>
-  <vue-table
-    :heading="'Last 10 rallies'"
-    :headers="['country', 'name', 'time', 'date', 'status']"
-    :items="getHistory"
-  />
+  <transition
+    name="fade"
+    mode="out-in"
+  >
+    <vue-table
+      v-if="getHistory.length > 0"
+      heading="Last 10 rallies"
+      :headers="['country', 'name', 'time', 'date', 'status']"
+      :items="getHistory"
+    />
+  </transition>
 </template>
 
 <script>
