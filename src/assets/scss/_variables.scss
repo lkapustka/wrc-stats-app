@@ -7,7 +7,9 @@
   --text-dark-color: #000000;
 
   --gradient: linear-gradient(45deg, #80ffdbb3, #7400b8b3);
-  --gradient-solid: linear-gradient(45deg, #80ffdbff, #7500b8ff);
+  --gradient-solid: linear-gradient(45deg,
+      var(--secondary-color),
+      var(--primary-color));
 
   --z-index-btn-menu: 1000;
   --z-index-menu: 100;

@@ -11,9 +11,9 @@
         {{ legend }}
       </legend>
       <div
-        v-for="[option, isChecked] in Object.entries(options)"
+        v-for="option in options"
         :key="option"
-        class="form__radio-box"
+        class="form__box"
       >
         <label
           class="form__label"
@@ -21,10 +21,11 @@
         >
           <input
             :id="option"
+            v-model="picked"
+            :value="option"
             class="form__radio"
             type="radio"
             :name="name"
-            :checked="isChecked"
           >
           {{ option }}
         </label>
@@ -32,7 +33,7 @@
     </fieldset>
     <button
       class="btn"
-      @click="submit"
+      @click="$emit('click')"
     >
       Save
     </button>
@@ -62,22 +63,30 @@ export default {
     },
 
     options: {
-      type: Object,
+      type: Array,
       required: true,
       validator: (value) => {
-        return Object.keys(value).length > 1
+        return value.length > 1;
       }
     }
   },
 
+  data() {
+    return {
+      picked: "WRC 9"
+    };
+  },
+
   setup(props) {
+
     console.log(props.options);
     const submit = (props) => {
 
       console.log(props.options);
     }
 
-    return { submit };
+    //console.log(picked);
+    return { submit};
   },
 };
 </script>
@@ -111,6 +120,7 @@ export default {
     gap: 0.3em;
     opacity: 1;
     color: var(--text-dark-color);
+    font-weight: bold;
     cursor: pointer;
   }
 

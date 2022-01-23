@@ -94,12 +94,54 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.text {
-  width: 100%;
-  margin-bottom: 1.5em;
+.form {
+  &__box {
+    display: flex;
+    margin-bottom: 0.2em;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: transform 0.4s ease;
+
+    &::after {
+      content: "";
+      display: block;
+      height: 0.3em;
+      background-color: var(--text-color);
+      opacity: 0.7;
+    }
+
+    &:focus-within::after,
+    &:focus-within > .form__label {
+      opacity: 1;
+    }
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+    padding: 0.5em 0;
+    background-color: transparent;
+    border: none;
+    color: var(--text-color);
+    font: bold 2rem "Source Sans Pro", sans-serif;
+
+    &:focus {
+      color: var(--text-color);
+      font-weight: bold;
+      outline: none;
+    }
+  }
+
+  &__label {
+    color: var(--text-color);
+    font-weight: bold;
+    opacity: 0.7;
+    transition: opacity 0.4s ease;
+  }
 }
 
-.form__box {
-  margin-bottom: 0.2em;
+.text {
+  text-align: center;
+  margin-bottom: 1.5em;
 }
 </style>
