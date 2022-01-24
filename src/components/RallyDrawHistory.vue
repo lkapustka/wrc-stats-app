@@ -3,7 +3,7 @@
     name="fade"
     mode="out-in"
   >
-    <vue-table
+    <base-table
       v-if="getHistory.length > 0"
       heading="Last 10 rallies"
       :headers="['country', 'name', 'time', 'date', 'status']"
@@ -14,11 +14,11 @@
 
 <script>
 import { computed, inject } from "@vue/composition-api";
-import VueTable from "./VueTable.vue";
+import BaseTable from "./UI Components/BaseTable.vue";
 
 export default {
   name: "RallyDrawHistory",
-  components: { VueTable },
+  components: { BaseTable },
 
   setup() {
     const store = inject("vuex-store");
