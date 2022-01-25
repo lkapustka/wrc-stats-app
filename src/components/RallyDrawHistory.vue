@@ -22,9 +22,7 @@ export default {
 
   setup() {
     const store = inject("vuex-store");
-    const getHistory = computed(() => {
-      return store.getters.getRalliesHistory || [];
-    });
+    const getHistory = computed(() => store.getters.getRalliesHistory);
 
     return { getHistory };
   },
