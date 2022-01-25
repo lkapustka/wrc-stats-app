@@ -17,7 +17,7 @@
         @discard="discardRally"
       />
     </transition>
-    <div class="input">
+    <div class="output">
       {{ displayRally }}
     </div>
     <rally-draw-history />
@@ -89,7 +89,7 @@ export default {
   margin-top: 1.5em;
 }
 
-.input {
+.output {
   width: 100%;
   margin-top: 1em;
   padding: 1em 1.5em;
