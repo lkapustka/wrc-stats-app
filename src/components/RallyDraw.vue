@@ -86,13 +86,13 @@ export default {
 }
 
 .btn {
-  margin-top: 2em;
+  margin-top: 1.5em;
 }
 
 .input {
   width: 100%;
   margin-top: 1em;
-  padding: 0.5em 1em;
+  padding: 1em 1.5em;
   background-color: var(--secondary-color);
   border-radius: 3px;
   text-align: center;
