@@ -11,21 +11,22 @@
         {{ legend }}
       </legend>
       <div
-        v-for="option in options"
+        v-for="(option, index) in options"
         :key="option"
         class="form__box"
       >
         <label
           class="form__label"
-          :for="option"
+          :for="name + ++index"
         >
           <input
-            :id="option"
-            v-model="picked"
-            :value="option"
+            :id="name + ++index"
+            v-model="value"
             class="form__radio"
             type="radio"
+            :value="option"
             :name="name"
+            @input="onChange"
           >
           {{ option }}
         </label>
@@ -33,7 +34,7 @@
     </fieldset>
     <button
       class="btn"
-      @click="$emit('click')"
+      @click="$emit('submit', value)"
     >
       Save
     </button>
@@ -45,6 +46,7 @@ import { ref } from "@vue/composition-api";
 
 export default {
   name: "BaseRadio",
+
   props: {
     heading: {
       type: String,
@@ -71,25 +73,20 @@ export default {
     }
   },
 
-  data() {
-    return {
-      picked: "WRC 9"
-    };
-  },
-
-  setup(props) {
-
-    console.log(props.options);
-    const submit = (props) => {
-
-      console.log(props.options);
+  setup(props, { emit }) {
+    const internalValue = ref("WRC 10");
+    const onChange = () => {
+      emit("input", internalValue);
     }
 
-    //console.log(picked);
-    return { submit};
-  },
+    return {
+      internalValue,
+      onChange,
+    };
+  }
 };
 </script>
+
 <style lang="scss" scoped>
 .form {
   &__heading {
