@@ -41,7 +41,7 @@ import NavBurgerBtn from "./UI Components/NavBurgerBtn.vue";
 import useDark from "../composables/useDark";
 
 export default {
-  name: "NavSite",
+  name: "TheNav",
   components: { NavBurgerBtn },
 
   setup() {
