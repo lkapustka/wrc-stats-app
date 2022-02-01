@@ -10,31 +10,30 @@
       <legend class="form__legend">
         {{ legend }}
       </legend>
+      <p class="form__description">
+        Current chosen: {{ picked }}
+      </p>
       <div
-        v-for="(option, index) in options"
-        :key="option"
+        v-for="option in options"
+        :key="option.name"
         class="form__box"
       >
-        <label
-          class="form__label"
-          :for="name + ++index"
-        >
+        <label class="form__label">
           <input
-            :id="name + ++index"
-            v-model="value"
+            v-model="internalValue"
             class="form__radio"
             type="radio"
-            :value="option"
             :name="name"
-            @input="onChange"
+            :value="option.title"
           >
-          {{ option }}
+          {{ option.title }}
         </label>
       </div>
     </fieldset>
     <button
+      :disabled="!internalValue"
       class="btn"
-      @click="$emit('submit', value)"
+      @click="$emit('submit', internalValue)"
     >
       Save
     </button>
@@ -64,24 +63,25 @@ export default {
       required: true,
     },
 
+    picked: {
+      type: String,
+      required: true,
+    },
+
     options: {
       type: Array,
       required: true,
       validator: (value) => {
         return value.length > 1;
       }
-    }
+    },
   },
 
-  setup(props, { emit }) {
-    const internalValue = ref("WRC 10");
-    const onChange = () => {
-      emit("input", internalValue);
-    }
+  setup() {
+    const internalValue = ref("");
 
     return {
       internalValue,
-      onChange,
     };
   }
 };
@@ -108,6 +108,12 @@ export default {
     text-align: center;
     color: var(--text-dark-color);
     font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  &__description {
+    margin: 0 0 1em 1.5em;
+    color: var(--text-dark-color);
     font-weight: bold;
   }
 
