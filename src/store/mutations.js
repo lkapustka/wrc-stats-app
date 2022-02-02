@@ -17,6 +17,10 @@ const mutations = {
     }
     state.ralliesHistory.push(value);
   },
+
+  setGameVersion(state, value) {
+    state.currentGameVersion = value;
+  },
 };
 
 export default mutations;

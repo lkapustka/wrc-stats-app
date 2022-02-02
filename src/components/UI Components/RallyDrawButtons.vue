@@ -35,7 +35,7 @@ export default {
 }
 
 .btn {
-  margin: 0 0.5em;
+  margin: 1.5em 0.5em 0;
   min-width: 0;
 
   &--accept {

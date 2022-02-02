@@ -21,6 +21,10 @@ const getters = {
 
   getError(state) {
     return state.error;
+  },
+
+  getGameVersion(state) {
+    return state.user.gameVersion;
   }
 };
 

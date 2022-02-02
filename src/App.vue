@@ -5,7 +5,8 @@
   >
     <section v-if="isUserAuth">
       <the-header />
-      <nav-site />
+      <the-nav />
+      <rally-draw />
     </section>
     <router-view />
   </div>
@@ -13,11 +14,12 @@
 
 <script>
 import { computed, inject } from "@vue/composition-api";
-import NavSite from "./components/NavSite.vue";
+import TheNav from "./components/TheNav.vue";
 import TheHeader from "./components/TheHeader.vue";
+import RallyDraw from './components/RallyDraw.vue';
 
 export default {
-  components: { NavSite, TheHeader },
+  components: { TheNav, TheHeader, RallyDraw },
 
   setup() {
     const store = inject("vuex-store");

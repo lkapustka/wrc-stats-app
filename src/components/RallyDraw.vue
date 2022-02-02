@@ -17,7 +17,7 @@
         @discard="discardRally"
       />
     </transition>
-    <div class="input">
+    <div class="output">
       {{ displayRally }}
     </div>
     <rally-draw-history />
@@ -58,7 +58,7 @@ export default {
       rally.status = Status.Discared;
       displayRally.value = "Click the button above to get started";
       store.commit("setActiveRally", null);
-    };
+    }
 
     const acceptRally = () => {
       toggleButtons();
@@ -85,10 +85,14 @@ export default {
   justify-content: center;
 }
 
-.input {
+.btn {
+  margin-top: 1.5em;
+}
+
+.output {
   width: 100%;
   margin-top: 1em;
-  padding: 0.5em 1em;
+  padding: 1em 1.5em;
   background-color: var(--secondary-color);
   border-radius: 3px;
   text-align: center;

@@ -14,7 +14,7 @@
         <form-input
           :id="'name'"
           v-model="signupForm.name"
-          :label="'Your name'"
+          :label="'Your nickname'"
           :rules="'required|min:4|max:30|alpha_dash'"
         >
           {{ signupForm.name }}
@@ -67,6 +67,7 @@ export default {
       name: "",
       email: "",
       password: "",
+      defaultGameVersion: "WRC 9",
     });
 
     const store = inject("vuex-store");
@@ -75,6 +76,7 @@ export default {
         name: signupForm.name,
         email: signupForm.email,
         password: signupForm.password,
+        defaultGameVersion: signupForm.defaultGameVersion,
       });
     };
 

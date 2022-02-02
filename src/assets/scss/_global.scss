@@ -19,16 +19,43 @@
 .btn {
   padding: 1em 1.5em;
   min-width: 150px;
-  background: var(--primary-color);
+  background-color: var(--primary-color);
   border: none;
   border-radius: 4px;
   color: var(--text-color);
   font: bold 1.6rem "Source Sans Pro", sans-serif;
   cursor: pointer;
+
+  &:disabled {
+    background-color: #cccccc;
+    color: #666666;
+  }
 }
 
 .link {
   text-decoration: none;
   color: var(--text-color);
   cursor: pointer;
+}
+
+.form {
+  display: flex;
+  width: 80%;
+  max-width: 500px;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+.text {
+  margin: 0 auto;
+  font-weight: bold;
+
+  &--error {
+    color: var(--error-color);
+    z-index: var(--z-index-error);
+  }
+
+  &--success {
+    color: var(--success-color);
+  }
 }

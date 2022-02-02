@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  name: "VueTable",
+  name: "BaseTable",
   props: {
     heading: {
       type: String,
@@ -48,7 +48,7 @@ export default {
       type: Array,
       required: true,
       validator: (value) => {
-        return value.length !== 0 && Array.isArray(value);
+        return Array.isArray(value) && value.length > 0;
       },
     },
 
@@ -62,6 +62,7 @@ export default {
   },
 };
 </script>
+
 <style lang="scss" scoped>
 .heading {
   margin: 2em 0;

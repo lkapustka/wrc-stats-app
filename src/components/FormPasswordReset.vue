@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="heading heading--margin">
+    <h1 class="heading">
       Reset Password
     </h1>
     <p class="text text--description">
@@ -82,17 +82,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.heading--margin {
+.heading {
   margin-bottom: 0.5em;
 }
 
 .text {
+  width: 80%;
+  text-align: center;
+
   &--description {
     margin-bottom: 1.5em;
-  }
-
-  &--success {
-    color: var(--success-color);
   }
 }
 </style>

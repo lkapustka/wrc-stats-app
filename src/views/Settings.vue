@@ -1,19 +1,15 @@
 <template>
-  <div />
+  <div class="container">
+    <setting-game-version />
+  </div>
 </template>
 
 <script>
-import { defineComponent } from "@vue/composition-api";
+import SettingGameVersion from "../components/SettingGameVersion.vue"
 
-export default defineComponent({
-  setup() {},
-});
-</script>
+export default {
+  components: { SettingGameVersion },
 
-<style lang="scss" scoped>
-div {
-  width: 100vw;
-  height: 100vh;
-  background-color: red;
+  setup() { },
 }
-</style>
+</script>
