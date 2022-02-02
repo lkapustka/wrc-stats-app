@@ -11,6 +11,7 @@ const actions = {
       // create user object in usersCollection
       await firebase.usersCollection.doc(user.uid).set({
         name: form.name,
+        gameVersion: form.defaultGameVersion,
       });
       dispatch("fetchUser", user);
     }
@@ -34,7 +35,7 @@ const actions = {
   async fetchUser({ commit }, user) {
     try {
       const userProfile = await firebase.usersCollection.doc(user.uid).get();
-      commit("setUser", userProfile);
+      commit("setUser", userProfile.data());
       if (router.currentRoute.path === "/login") {
         router.push("/");
       }
@@ -54,6 +55,19 @@ const actions = {
 
     catch (error) {
       commit("setError", error.message);
+    }
+  },
+
+  async updateGameVersion({ commit, dispatch }, version) {
+    const userId = firebase.auth.currentUser.uid;
+
+    try {
+      await firebase.usersCollection.doc(userId).update({ gameVersion: version});
+      dispatch("fetchUser", { uid: userId });
+    }
+
+    catch (error) {
+      commit("serError", error.message);
     }
   },
 };

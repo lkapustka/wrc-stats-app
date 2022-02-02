@@ -34,7 +34,7 @@ export default {
     const currentVersion = computed(() => store.getters.getGameVersion);
 
     const updateVersion = (value) => {
-      store.commit("setGameVersion", value);
+      store.dispatch("updateGameVersion", value);
     };
 
     return {

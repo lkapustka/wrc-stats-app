@@ -24,7 +24,7 @@ const getters = {
   },
 
   getGameVersion(state) {
-    return state.currentGameVersion;
+    return state.user.gameVersion;
   }
 };
 
