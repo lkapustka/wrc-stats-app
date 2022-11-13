@@ -1,0 +1,827 @@
+[
+  {
+    "id": 1,
+    "country": "MONTE CARLO",
+    "name": "Monte Carlo (odcinek testowy)"
+  },
+  {
+    "id": 2,
+    "country": "MONTE CARLO",
+    "name": "Agnieres-en-Devoluy"
+  },
+  {
+    "id": 3,
+    "country": "MONTE CARLO",
+    "name": "Agnieres-en-Devoluy (Reverse)"
+  },
+  {
+    "id": 4,
+    "country": "MONTE CARLO",
+    "name": "Luceram"
+  },
+  {
+    "id": 5,
+    "country": "MONTE CARLO",
+    "name": "Luceram (Reverse)"
+  },
+  {
+    "id": 6,
+    "country": "MONTE CARLO",
+    "name": "Col de Braus"
+  },
+  {
+    "id": 7,
+    "country": "MONTE CARLO",
+    "name": "Col de Braus (Reverse)"
+  },
+  {
+    "id": 8,
+    "country": "MONTE CARLO",
+    "name": "La Bollene-Vesuby"
+  },
+  {
+    "id": 9,
+    "country": "MONTE CARLO",
+    "name": "La Bollene-Vesuby (Reverse)"
+  },
+  {
+    "id": 10,
+    "country": "SWEDEN",
+    "name": "Sweden (dcinek testowy)"
+  },
+  {
+    "id": 11,
+    "country": "SWEDEN",
+    "name": "Savar"
+  },
+  {
+    "id": 12,
+    "country": "SWEDEN",
+    "name": "Savar (Reverse)"
+  },
+  {
+    "id": 13,
+    "country": "SWEDEN",
+    "name": "Brattby"
+  },
+  {
+    "id": 14,
+    "country": "SWEDEN",
+    "name": "Brattby (Reverse)"
+  },
+  {
+    "id": 15,
+    "country": "SWEDEN",
+    "name": "Kroksjo"
+  },
+  {
+    "id": 16,
+    "country": "SWEDEN",
+    "name": "Kroksjo (Reverse)"
+  },
+  {
+    "id": 17,
+    "country": "SWEDEN",
+    "name": "Otrask"
+  },
+  {
+    "id": 18,
+    "country": "CROATIA",
+    "name": "Croatia (odcinek testowy)"
+  },
+  {
+    "id": 19,
+    "country": "CROATIA",
+    "name": "Grdanjci"
+  },
+  {
+    "id": 20,
+    "country": "CROATIA",
+    "name": "Grdanjci (Reverse)"
+  },
+  {
+    "id": 21,
+    "country": "CROATIA",
+    "name": "Jaskovo"
+  },
+  {
+    "id": 22,
+    "country": "CROATIA",
+    "name": "Jaskovo (Reverse)"
+  },
+  {
+    "id": 23,
+    "country": "CROATIA",
+    "name": "Rude"
+  },
+  {
+    "id": 24,
+    "country": "CROATIA",
+    "name": "Rude (Reverse)"
+  },
+  {
+    "id": 25,
+    "country": "CROATIA",
+    "name": "Kostanjevac"
+  },
+  {
+    "id": 26,
+    "country": "CROATIA",
+    "name": "Kostanjevac (Reverse)"
+  },
+  {
+    "id": 27,
+    "country": "PORTUGAL",
+    "name": "Portugal (odcinek testowy)"
+  },
+  {
+    "id": 28,
+    "country": "PORTUGAL",
+    "name": "Felgueiras"
+  },
+  {
+    "id": 29,
+    "country": "PORTUGAL",
+    "name": "Felgueiras (Reverse)"
+  },
+  {
+    "id": 30,
+    "country": "PORTUGAL",
+    "name": "Arganil"
+  },
+  {
+    "id": 31,
+    "country": "PORTUGAL",
+    "name": "Arganil (Reverse)"
+  },
+  {
+    "id": 32,
+    "country": "PORTUGAL",
+    "name": "Cabeceiras de Basto"
+  },
+  {
+    "id": 33,
+    "country": "PORTUGAL",
+    "name": "Cabeceiras de Basto (Reverse)"
+  },
+  {
+    "id": 34,
+    "country": "PORTUGAL",
+    "name": "Lousada"
+  },
+  {
+    "id": 35,
+    "country": "ITALY-SARDINIA",
+    "name": "Sardinia (odcinek testowy)"
+  },
+  {
+    "id": 36,
+    "country": "ITALY-SARDINIA",
+    "name": "Baranta"
+  },
+  {
+    "id": 37,
+    "country": "ITALY-SARDINIA",
+    "name": "Baranta (Reverse)"
+  },
+  {
+    "id": 38,
+    "country": "ITALY-SARDINIA",
+    "name": "Lerno"
+  },
+  {
+    "id": 39,
+    "country": "ITALY-SARDINIA",
+    "name": "Lerno (Reverse)"
+  },
+  {
+    "id": 40,
+    "country": "ITALY-SARDINIA",
+    "name": "Monti di Ala"
+  },
+  {
+    "id": 41,
+    "country": "ITALY-SARDINIA",
+    "name": "Monti di Ala (Reverse)"
+  },
+  {
+    "id": 42,
+    "country": "ITALY-SARDINIA",
+    "name": "Ittiri Arena"
+  },
+  {
+    "id": 43,
+    "country": "KENYA",
+    "name": "Kenya (odcinek testowy)"
+  },
+  {
+    "id": 44,
+    "country": "KENYA",
+    "name": "Ngema"
+  },
+  {
+    "id": 45,
+    "country": "KENYA",
+    "name": "Ngema (Reverse)"
+  },
+  {
+    "id": 46,
+    "country": "KENYA",
+    "name": "Sayabei"
+  },
+  {
+    "id": 47,
+    "country": "KENYA",
+    "name": "Sayabei (Reverse)"
+  },
+  {
+    "id": 48,
+    "country": "KENYA",
+    "name": "Ntulele"
+  },
+  {
+    "id": 49,
+    "country": "KENYA",
+    "name": "Ntulele (Reverse)"
+  },
+  {
+    "id": 50,
+    "country": "KENYA",
+    "name": "Kasarani"
+  },
+  {
+    "id": 51,
+    "country": "ESTONIA",
+    "name": "Estonia (odcinek testowy)"
+  },
+  {
+    "id": 52,
+    "country": "ESTONIA",
+    "name": "Elva"
+  },
+  {
+    "id": 53,
+    "country": "ESTONIA",
+    "name": "Elva (Reverse)"
+  },
+  {
+    "id": 54,
+    "country": "ESTONIA",
+    "name": "Otepaa"
+  },
+  {
+    "id": 55,
+    "country": "ESTONIA",
+    "name": "Otepaa (Reverse)"
+  },
+  {
+    "id": 56,
+    "country": "ESTONIA",
+    "name": "Kanepi"
+  },
+  {
+    "id": 57,
+    "country": "ESTONIA",
+    "name": "Kanepi (Reverse)"
+  },
+  {
+    "id": 58,
+    "country": "ESTONIA",
+    "name": "Tartu"
+  },
+  {
+    "id": 59,
+    "country": "BELGIUM",
+    "name": "Belgium (odcinek testowy)"
+  },
+  {
+    "id": 60,
+    "country": "BELGIUM",
+    "name": "Dikkebus"
+  },
+  {
+    "id": 61,
+    "country": "BELGIUM",
+    "name": "Dikkebus (Reverse)"
+  },
+  {
+    "id": 62,
+    "country": "BELGIUM",
+    "name": "Kammelberg"
+  },
+  {
+    "id": 63,
+    "country": "BELGIUM",
+    "name": "Kammelberg (Reverse)"
+  },
+  {
+    "id": 64,
+    "country": "BELGIUM",
+    "name": "ZonneBeke"
+  },
+  {
+    "id": 65,
+    "country": "BELGIUM",
+    "name": "ZoneBeke (Reverse)"
+  },
+  {
+    "id": 66,
+    "country": "GREECE",
+    "name": "Rajd Akropolu (odcinek testowy)"
+  },
+  {
+    "id": 67,
+    "country": "GREECE",
+    "name": "Psatha"
+  },
+  {
+    "id": 68,
+    "country": "GREECE",
+    "name": "Psatha (Reverse)"
+  },
+  {
+    "id": 69,
+    "country": "GREECE",
+    "name": "Amfissa"
+  },
+  {
+    "id": 70,
+    "country": "GREECE",
+    "name": "Amfissa (Reverse)"
+  },
+  {
+    "id": 71,
+    "country": "GREECE",
+    "name": "Paleohori"
+  },
+  {
+    "id": 72,
+    "country": "GREECE",
+    "name": "Paleohori (Reverse)"
+  },
+  {
+    "id": 73,
+    "country": "GREECE",
+    "name": "Mendenitsa"
+  },
+  {
+    "id": 74,
+    "country": "GREECE",
+    "name": "Mendenitsa (Reverse)"
+  },
+  {
+    "id": 75,
+    "country": "FINLAND",
+    "name": "Finland (odcinek testowy)"
+  },
+  {
+    "id": 76,
+    "country": "FINLAND",
+    "name": "Arvaja"
+  },
+  {
+    "id": 77,
+    "country": "FINLAND",
+    "name": "Arvaja (Reverse)"
+  },
+  {
+    "id": 78,
+    "country": "FINLAND",
+    "name": "Pihlajakoski"
+  },
+  {
+    "id": 79,
+    "country": "FINLAND",
+    "name": "Pihlajakoski (Reverse)"
+  },
+  {
+    "id": 80,
+    "country": "FINLAND",
+    "name": "Laukka"
+  },
+  {
+    "id": 81,
+    "country": "FINLAND",
+    "name": "Laukka (Reverse)"
+  },
+  {
+    "id": 82,
+    "country": "FINLAND",
+    "name": "Harju"
+  },
+  {
+    "id": 83,
+    "country": "SPAIN",
+    "name": "Spain (Odcinek testowy)"
+  },
+  {
+    "id": 84,
+    "country": "SPAIN",
+    "name": "Riudecanyes"
+  },
+  {
+    "id": 85,
+    "country": "SPAIN",
+    "name": "Riudecanyes (Reverse)"
+  },
+  {
+    "id": 86,
+    "country": "SPAIN",
+    "name": "Savalla"
+  },
+  {
+    "id": 87,
+    "country": "SPAIN",
+    "name": "Savalla (Reverse)"
+  },
+  {
+    "id": 88,
+    "country": "SPAIN",
+    "name": "Querol"
+  },
+  {
+    "id": 89,
+    "country": "SPAIN",
+    "name": "Querol (Reverse)"
+  },
+  {
+    "id": 90,
+    "country": "SPAIN",
+    "name": "Barcelona"
+  },
+  {
+    "id": 91,
+    "country": "JAPAN",
+    "name": "Japan (odcinek testowy)"
+  },
+  {
+    "id": 92,
+    "country": "JAPAN",
+    "name": "Okazaki"
+  },
+  {
+    "id": 93,
+    "country": "JAPAN",
+    "name": "Okazaki (Reverse)"
+  },
+  {
+    "id": 94,
+    "country": "JAPAN",
+    "name": "Nagakute"
+  },
+  {
+    "id": 95,
+    "country": "JAPAN",
+    "name": "Nagakute (Reverse)"
+  },
+  {
+    "id": 96,
+    "country": "JAPAN",
+    "name": "Shinshiro"
+  },
+  {
+    "id": 97,
+    "country": "JAPAN",
+    "name": "Shinshiro (Reverse)"
+  },
+  {
+    "id": 98,
+    "country": "JAPAN",
+    "name": "Shitara"
+  },
+  {
+    "id": 99,
+    "country": "JAPAN",
+    "name": "Shitara (Reverse)"
+  },
+  {
+    "id": 100,
+    "country": "NEW ZEALAND",
+    "name": "NEW ZEALAND (odcinek testowy)"
+  },
+  {
+    "id": 101,
+    "country": "NEW ZEALAND",
+    "name": "Te Hutewai"
+  },
+  {
+    "id": 102,
+    "country": "NEW ZEALAND",
+    "name": "Te Hutewai (Reverse)"
+  },
+  {
+    "id": 103,
+    "country": "NEW ZEALAND",
+    "name": "Batley"
+  },
+  {
+    "id": 104,
+    "country": "NEW ZEALAND",
+    "name": "Batley (Reverse)"
+  },
+  {
+    "id": 105,
+    "country": "NEW ZEALAND",
+    "name": "Brooks"
+  },
+  {
+    "id": 106,
+    "country": "NEW ZEALAND",
+    "name": "Brooks (Reverse)"
+  },
+  {
+    "id": 107,
+    "country": "NEW ZEALAND",
+    "name": "Te Akau South"
+  },
+  {
+    "id": 108,
+    "country": "NEW ZEALAND",
+    "name": "Te Akau South (Reverse)"
+  },
+  {
+    "id": 109,
+    "country": "ARGENTINA",
+    "name": "Argentina (odcinek testowy)"
+  },
+  {
+    "id": 110,
+    "country": "ARGENTINA",
+    "name": "El Condor"
+  },
+  {
+    "id": 111,
+    "country": "ARGENTINA",
+    "name": "El Condor (Reverse)"
+  },
+  {
+    "id": 112,
+    "country": "ARGENTINA",
+    "name": "Cuchilla Nevada"
+  },
+  {
+    "id": 113,
+    "country": "ARGENTINA",
+    "name": "Cuchilla Nevada (Reverse)"
+  },
+  {
+    "id": 114,
+    "country": "ARGENTINA",
+    "name": "Cantera"
+  },
+  {
+    "id": 115,
+    "country": "ARGENTINA",
+    "name": "Cantera (Reverse)"
+  },
+  {
+    "id": 116,
+    "country": "ARGENTINA",
+    "name": "Parque Tematico OS"
+  },
+  {
+    "id": 117,
+    "country": "CHILE",
+    "name": "Chile (odcinek testowy)"
+  },
+  {
+    "id": 118,
+    "country": "CHILE",
+    "name": "Lircay"
+  },
+  {
+    "id": 119,
+    "country": "CHILE",
+    "name": "Lircay (Reverse)"
+  },
+  {
+    "id": 120,
+    "country": "CHILE",
+    "name": "Biobio"
+  },
+  {
+    "id": 121,
+    "country": "CHILE",
+    "name": "Biobio (Reverse)"
+  },
+  {
+    "id": 122,
+    "country": "CHILE",
+    "name": "Pelun"
+  },
+  {
+    "id": 123,
+    "country": "CHILE",
+    "name": "Pelun (Reverse)"
+  },
+  {
+    "id": 124,
+    "country": "CHILE",
+    "name": "El Puma"
+  },
+  {
+    "id": 125,
+    "country": "CHILE",
+    "name": "El Puma (Reverse)"
+  },
+  {
+    "id": 126,
+    "country": "GERMANY",
+    "name": "GERMANY (odcinek testowy)"
+  },
+  {
+    "id": 127,
+    "country": "GERMANY",
+    "name": "Moselland"
+  },
+  {
+    "id": 128,
+    "country": "GERMANY",
+    "name": "Moselland (Reverse)"
+  },
+  {
+    "id": 129,
+    "country": "GERMANY",
+    "name": "Freisen"
+  },
+  {
+    "id": 130,
+    "country": "GERMANY",
+    "name": "Freisen (Reverse)"
+  },
+  {
+    "id": 131,
+    "country": "GERMANY",
+    "name": "Mittelmosel"
+  },
+  {
+    "id": 132,
+    "country": "GERMANY",
+    "name": "Mittelmosel (Reverse)"
+  },
+  {
+    "id": 133,
+    "country": "GERMANY",
+    "name": "Arena Panzerplatte OS"
+  },
+  {
+    "id": 134,
+    "country": "MEXICO",
+    "name": "Mexico (odcinek testowy)"
+  },
+  {
+    "id": 135,
+    "country": "MEXICO",
+    "name": "Media Luna"
+  },
+  {
+    "id": 136,
+    "country": "MEXICO",
+    "name": "Media Luna (Reverse)"
+  },
+  {
+    "id": 137,
+    "country": "MEXICO",
+    "name": "Ibarilla"
+  },
+  {
+    "id": 138,
+    "country": "MEXICO",
+    "name": "Ibarilla (Reverse)"
+  },
+  {
+    "id": 139,
+    "country": "MEXICO",
+    "name": "El Chocolate"
+  },
+  {
+    "id": 140,
+    "country": "MEXICO",
+    "name": "El Chocolate (Reverse)"
+  },
+  {
+    "id": 141,
+    "country": "MEXICO",
+    "name": "Autodromo de Leon"
+  },
+  {
+    "id": 142,
+    "country": "ITALY-SAN REMO",
+    "name": "San Remo (odcinek testowy)"
+  },
+{
+    "id": 143,
+    "country": "ITALY-SAN REMO",
+    "name": "Ronde"
+  },
+{
+    "id": 144,
+    "country": "ITALY-SAN REMO",
+    "name": "Ronde (Reverse)"
+  },
+{
+    "id": 145,
+    "country": "FRANCE",
+    "name": "Corse (odcinek testowy)"
+  },
+{
+    "id": 146,
+    "country": "FRANCE",
+    "name": "Pietrosella"
+  },
+{
+    "id": 147,
+    "country": "FRANCE",
+    "name": "Pietrosella (Reverse)"
+  },
+{
+    "id": 148,
+    "country": "TURKEY",
+    "name": "Turkey (odcinek testowy)"
+  },
+{
+    "id": 149,
+    "country": "TURKEY",
+    "name": "Datca"
+  },
+{
+    "id": 150,
+    "country": "TURKEY",
+    "name": "Datca (Reverse)"
+  },
+{
+    "id": 151,
+    "country": "TURKEY",
+    "name": "Cicekli"
+  },
+{
+    "id": 152,
+    "country": "TURKEY",
+    "name": "Cicekli (Reverse)"
+  },
+{
+    "id": 153,
+    "country": "TURKEY",
+    "name": "Yesilbelde"
+  },
+{
+    "id": 154,
+    "country": "TURKEY",
+    "name": "Yesilbelde (Reverse)"
+  },
+{
+    "id": 155,
+    "country": "TURKEY",
+    "name": "Marmaris"
+  },
+{
+    "id": 156,
+    "country": "WALES",
+    "name": "Wales (odcinek testowy)"
+  },
+{
+    "id": 157,
+    "country": "WALES",
+    "name": "Hafren"
+  },
+{
+    "id": 158,
+    "country": "WALES",
+    "name": "Hafren (Reverse)"
+  },
+{
+    "id": 159,
+    "country": "WALES",
+    "name": "Great Orne"
+  },
+{
+    "id": 160,
+    "country": "WALES",
+    "name": "Great Orne (Reverse)"
+  },
+{
+    "id": 161,
+    "country": "WALES",
+    "name": "Brenig"
+  },
+{
+    "id": 162,
+    "country": "WALES",
+    "name": "Brenig (Reverse)"
+  },
+{
+    "id": 163,
+    "country": "WALES",
+    "name": "Dyfi"
+  },
+{
+    "id": 164,
+    "country": "WALES",
+    "name": "Dyfi (Reverse)"
+  },
+{
+    "id": 165,
+    "country": "SWEDEN",
+    "name": "Otrask (Reverse)"
+  }
+]

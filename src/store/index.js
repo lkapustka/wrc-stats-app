@@ -12,7 +12,7 @@ const initialState = () => {
     error: null,
     activeRally: null,
     ralliesHistory: [],
-    rallies: require("../data/wrc9.json")
+    rallies: require("../data/wrc-generations.json")
   };
 };
 
