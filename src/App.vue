@@ -6,7 +6,6 @@
     <section v-if="isUserAuth">
       <the-header />
       <the-nav />
-      <rally-draw />
     </section>
     <router-view />
   </div>
@@ -16,10 +15,9 @@
 // import { computed, inject } from "@vue/composition-api";
 import TheNav from "./components/TheNav.vue";
 import TheHeader from "./components/TheHeader.vue";
-import RallyDraw from './components/RallyDraw.vue';
 
 export default {
-  components: { TheNav, TheHeader, RallyDraw },
+  components: { TheNav, TheHeader },
 
   setup() {
     // const store = inject("vuex-store");

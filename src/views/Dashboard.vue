@@ -1,10 +1,15 @@
 <template>
-  <div class="container" />
+  <div class="container">
+    <rally-draw />
+  </div>
 </template>
 
 <script>
+import RallyDraw from '../components/RallyDraw.vue';
+
 export default {
-  setup() {},
+  components: { RallyDraw }
+
 };
 </script>
 
