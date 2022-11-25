@@ -17,30 +17,25 @@ export default {
   name: "SettingGameVersion",
   components: { BaseRadio },
 
-  data() {
+  setup() {
+    const store = inject("vuex-store");
+    const currentVersion = computed(() => store.getters.getGameVersion);
+
     const options = [
-      { name: "wrc8", title: "WRC 8" },
       { name: "wrc9", title: "WRC 9" },
       { name: "wrc10", title: "WRC 10" },
       { name: "wrc-generations", title: "WRC Generations" },
     ];
 
-    return {
-      options,
-    };
-  },
-
-  setup() {
-    const store = inject("vuex-store");
-    const currentVersion = computed(() => store.getters.getGameVersion);
-
     const updateVersion = (value) => {
-      store.dispatch("updateGameVersion", value);
+      const versionObj = options.find(obj => Object.values(obj).includes(value));
+      store.commit("setGameVersion", { version: value, dataName: versionObj.name });
     };
 
     return {
       currentVersion,
       updateVersion,
+      options,
     };
   },
 };

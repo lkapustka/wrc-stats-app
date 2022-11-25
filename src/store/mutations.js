@@ -12,14 +12,23 @@ const mutations = {
   },
 
   setRalliesHistory(state, value) {
-    if (state.ralliesHistory.length === 10) {
+    if (state.ralliesHistory.length === state.ralliesHistoryQuantity) {
       state.ralliesHistory.shift();
     }
     state.ralliesHistory.push(value);
   },
 
-  setGameVersion(state, value) {
-    state.currentGameVersion = value;
+  setRalliesHistoryQuantity(state, value) {
+    state.ralliesHistoryQuantity = value;
+  },
+
+  setLastRallyStatus(state, value) {
+    state.ralliesHistory.at(-1).status = value;
+  },
+
+  setGameVersion(state, { version, dataName }) {
+    state.gameVersion = version;
+    state.rallies = require(`../data/${dataName}.json`);
   },
 };
 

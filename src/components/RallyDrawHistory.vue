@@ -5,7 +5,7 @@
   >
     <base-table
       v-if="getHistory.length > 0"
-      heading="Last 10 rallies"
+      :heading="heading"
       :headers="['country', 'name', 'time', 'date', 'status']"
       :items="getHistory"
     />
@@ -23,8 +23,10 @@ export default {
   setup() {
     const store = inject("vuex-store");
     const getHistory = computed(() => store.getters.getRalliesHistory);
-
-    return { getHistory };
+    const getHistoryQuantity = computed(() => store.getters.getRalliesHistoryQuantity);
+    const heading = `Last ${getHistoryQuantity.value} rallies`;
+    
+    return { getHistory, heading };
   },
 };
 </script>

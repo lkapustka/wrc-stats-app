@@ -10,7 +10,9 @@ const initialState = () => {
   return {
     user: null,
     error: null,
+    gameVersion: 'WRC Generations',
     activeRally: null,
+    ralliesHistoryQuantity: 10,
     ralliesHistory: [],
     rallies: require("../data/wrc-generations.json")
   };

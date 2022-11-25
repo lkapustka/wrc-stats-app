@@ -24,8 +24,12 @@ const getters = {
   },
 
   getGameVersion(state) {
-    return state.user.gameVersion;
-  }
+    return state.gameVersion;
+  },
+
+  getRalliesHistoryQuantity(state) {
+    return state.ralliesHistoryQuantity;
+  },
 };
 
 export default getters;
