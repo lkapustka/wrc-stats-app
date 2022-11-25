@@ -56,12 +56,12 @@ export default {
       toggleButtons();
       displayRally.value = "Click the button above to get started";
       store.commit("setActiveRally", null);
-      store.commit("updateLastRallyStatus", Status.Discared);
+      store.commit("setLastRallyStatus", Status.Discared);
     }
 
     const acceptRally = () => {
       toggleButtons();
-      store.commit("updateLastRallyStatus", Status.Accepted);
+      store.commit("setLastRallyStatus", Status.Accepted);
     }
 
     return {
