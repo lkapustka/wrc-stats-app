@@ -4,7 +4,7 @@ import router from "./router";
 import store from "./store";
 import VueCompositionApi from "@vue/composition-api";
 import { provide } from "@vue/composition-api";
-import { auth } from "./firebase";
+// import { auth } from "./firebase";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -16,7 +16,7 @@ Vue.use(VueCompositionApi);
 Vue.config.productionTip = false;
 
 let app;
-auth.onAuthStateChanged((user) => {
+// auth.onAuthStateChanged((user) => {
   if (!app) {
     app = new Vue({
       setup() {
@@ -29,7 +29,7 @@ auth.onAuthStateChanged((user) => {
     }).$mount("#app");
   }
 
-  if (user) {
-    store.dispatch("fetchUser", user);
-  }
-});
+  // if (user) {
+  //   store.dispatch("fetchUser", user);
+  // }
+// });

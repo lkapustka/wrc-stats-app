@@ -2,8 +2,6 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 
-console.log(process.env.VUE_APP_API_KEY);
-
 const firebaseConfig = {
   apiKey: process.VUE_APP_API_KEY,
   authDomain: process.env.VUE_APP_AUTH_DOMAIN,
@@ -17,8 +15,12 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
-const auth = firebase.auth();
+// const auth = firebase.auth();
 
 const usersCollection = db.collection("users");
 
-export { db, auth, usersCollection };
+export {
+  db,
+  // auth,
+  usersCollection
+};

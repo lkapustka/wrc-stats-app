@@ -10,40 +10,40 @@ const routes = [
     path: "/",
     name: "Dashboard",
     component: Dashboard,
-    meta: {
-      requiresAuth: true,
-    },
+    // meta: {
+    //   requiresAuth: true,
+    // },
   },
   {
     path: "/rallies",
     name: "Rallies Stats",
     component: () => import("../views/Rallies.vue"),
-    meta: {
-      requiresAuth: true,
-    },
+    // meta: {
+    //   requiresAuth: true,
+    // },
   },
-  {
-    path: "/login",
-    name: "Login",
-    component: () => import( "../views/Login.vue"),
-    meta: {},
-  },
+  // {
+  //   path: "/login",
+  //   name: "Login",
+  //   component: () => import( "../views/Login.vue"),
+  //   meta: {},
+  // },
   {
     path: "/settings",
     name: "Settings",
     component: () => import("../views/Settings.vue"),
-    meta: {
-      requiresAuth: true,
-    },
+    // meta: {
+    //   requiresAuth: true,
+    // },
   },
-  {
-    path: "/logout",
-    name: "Logout",
-    component: () => import("../views/Logout.vue"),
-    meta: {
-      requiresAuth: true,
-    },
-  },
+  // {
+  //   path: "/logout",
+  //   name: "Logout",
+  //   component: () => import("../views/Logout.vue"),
+  //   meta: {
+  //     requiresAuth: true,
+  //   },
+  // },
 ];
 
 const router = new VueRouter({

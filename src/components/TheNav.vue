@@ -52,7 +52,8 @@ export default {
 
     const router = inject("vue-router");
     const routes = computed(() => {
-      return router.options.routes.filter(route => route.meta.requiresAuth);
+      // return router.options.routes.filter(route => route.meta.requiresAuth);
+      return router.options.routes;
     });
 
     const { isDark } = useDark();
