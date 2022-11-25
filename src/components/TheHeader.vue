@@ -33,11 +33,12 @@ export default {
     var(--header-bg-small));
 
   &__heading {
-    font: bold 4.8rem "Rock Salt", cursive;
+    font: bold 3.2rem "Rock Salt", cursive;
   }
 
   &__text {
     font-size: 1.4rem;
+    display: none;
   }
 }
 
