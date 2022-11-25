@@ -85,13 +85,4 @@ setup() {
       margin: 1em 0;
     }
 }
-
-@media (min-width: 768px) {
-  .history-quantity {
-    &__btn {
-
-    }
-  }
-}
-
 </style>
