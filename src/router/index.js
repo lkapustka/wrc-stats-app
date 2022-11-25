@@ -14,14 +14,14 @@ const routes = [
     //   requiresAuth: true,
     // },
   },
-  {
-    path: "/rallies",
-    name: "Rallies Stats",
-    component: () => import("../views/Rallies.vue"),
-    // meta: {
-    //   requiresAuth: true,
-    // },
-  },
+  // {
+  //   path: "/rallies",
+  //   name: "Rallies Stats",
+  //   component: () => import("../views/Rallies.vue"),
+  //   meta: {
+  //     requiresAuth: true,
+  //   },
+  // },
   // {
   //   path: "/login",
   //   name: "Login",
