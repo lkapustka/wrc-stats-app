@@ -20,7 +20,7 @@ export default {
 .header {
   display: flex;
   width: 100%;
-  height: 75vh;
+  height: 30vh;
   padding: 2em;
   flex-direction: column;
   justify-content: center;

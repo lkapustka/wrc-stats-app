@@ -49,21 +49,19 @@ export default {
       const { rally } = useDrawRally(store);
       displayRally.value = `${rally.country} - ${rally.name}  (${rally.time})`;
       store.commit("setActiveRally", rally);
-      store.commit("setRalliesHistory", rally);
+      store.commit("setRalliesHistory", { ...rally });
     }, 200);
 
     const discardRally = () => {
       toggleButtons();
-      const rally = store.getters.getActiveRally;
-      rally.status = Status.Discared;
       displayRally.value = "Click the button above to get started";
       store.commit("setActiveRally", null);
+      store.commit("updateLastRallyStatus", Status.Discared);
     }
 
     const acceptRally = () => {
       toggleButtons();
-      const rally = store.getters.getActiveRally;
-      rally.status = Status.Accepted;
+      store.commit("updateLastRallyStatus", Status.Accepted);
     }
 
     return {
