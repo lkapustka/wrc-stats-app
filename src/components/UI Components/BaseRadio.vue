@@ -89,6 +89,8 @@ export default {
 
 <style lang="scss" scoped>
 .form {
+  width: 100%;
+
   &__heading {
     margin: 1em 0;
     color: var(--text-dark-color);
